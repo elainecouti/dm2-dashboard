@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DM2 — Março 2026</title>
+<style>
+:root{--bg:#f5f5f7;--c:#fff;--t:#1d1d1f;--t2:#86868b;--t3:#aeaeb2;--b:#007AFF;--g:#34C759;--r:#FF3B30;--o:#FF9500;--br:#e5e5e7;--rd:16px;--sh:0 1px 3px rgba(0,0,0,.04),0 4px 12px rgba(0,0,0,.06);--accent:#6C5CE7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--t);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1700px;margin:0 auto;padding:32px 24px}
+.hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--br)}
+.hdr h1{font-size:32px;font-weight:700;letter-spacing:-.5px}
+.hdr .sub{color:var(--t2);font-size:14px;margin-top:2px}
+.hdr .upd{color:var(--t3);font-size:12px;text-align:right}
+.brand{display:flex;align-items:center;gap:16px}
+.logo{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#6C5CE7,#a855f7);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;letter-spacing:-1px;box-shadow:0 2px 8px rgba(108,92,231,.3)}
+.hdr-right{text-align:right}
+.hdr-actions{margin-top:8px;display:flex;gap:8px;justify-content:flex-end}
+.agency{font-size:13px;font-weight:600;color:var(--accent);background:rgba(108,92,231,.08);padding:4px 12px;border-radius:8px}
+.tabs{display:flex;gap:4px;margin-bottom:28px;background:#e8e8ed;border-radius:10px;padding:3px;width:fit-content}
+.tab{padding:8px 20px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;color:var(--t2);border:none;background:none;transition:.2s}
+.tab.on{background:var(--c);color:var(--t);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.tab:hover:not(.on){color:var(--t)}
+.tc{display:none}.tc.on{display:block}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:28px}
+.card{background:var(--c);border-radius:var(--rd);padding:18px 22px;box-shadow:var(--sh);transition:transform .15s}
+.card:hover{transform:translateY(-2px)}
+.card .lb{font-size:12px;color:var(--t2);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.card .vl{font-size:30px;font-weight:700;margin-top:4px;letter-spacing:-1px}
+.card .sm{font-size:12px;color:var(--t3);margin-top:2px}
+.vl.green{color:var(--g)}.vl.blue{color:var(--b)}.vl.orange{color:var(--o)}
+.chart-c{background:var(--c);border-radius:var(--rd);padding:24px;box-shadow:var(--sh);margin-bottom:28px}
+.chart-c h3{font-size:17px;font-weight:600;margin-bottom:14px}
+canvas{width:100%!important;height:180px!important}
+.tbl-c{background:var(--c);border-radius:var(--rd);box-shadow:var(--sh);overflow:hidden;margin-bottom:28px}
+.tbl-c h3{font-size:17px;font-weight:600;padding:18px 22px 10px}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:8px 6px;font-weight:600;font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--br);position:sticky;top:0;background:var(--c);white-space:nowrap}
+td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
+.ur:hover{background:#f8f8fa}
+.cs{width:28px;text-align:center}
+.cn{min-width:130px}.cn .est{color:var(--t3);font-size:10px;margin-left:5px}
+.num{text-align:right;min-width:44px;font-variant-numeric:tabular-nums}
+.total{font-size:14px}
+.money{text-align:right;min-width:80px;font-variant-numeric:tabular-nums}
+.cpl{text-align:right;min-width:70px;font-variant-numeric:tabular-nums}
+.msgs{color:var(--b)}
+.dh{text-align:center;min-width:26px;font-size:9px}
+.dc{text-align:center;min-width:26px;font-size:11px;font-weight:500;border-radius:3px;font-variant-numeric:tabular-nums}
+.zero{color:var(--t3)}.dtot{font-weight:700;background:#f0f0f5}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%}
+.dot-green{background:var(--g)}.dot-red{background:var(--r)}.dot-gray{background:var(--t3)}.dot-orange{background:var(--o)}
+.tup{color:var(--r)}.tdn{color:var(--g)}.tst{color:var(--t3)}
+.arr{font-size:9px}
+.tr-total td{font-weight:700;background:#f8f8fa;border-top:2px solid var(--br)}
+.perda-alta{color:var(--r);font-weight:600}
+.badge{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;white-space:nowrap}
+.badge-red{background:#fff0f0;color:var(--r)}.badge-orange{background:#fff8ef;color:var(--o)}.badge-green{background:#f0faf3;color:var(--g)}
+.alert-col{min-width:80px}
+.st-ok{color:var(--g);font-weight:600}.st-warn{color:var(--o);font-weight:600}
+.cc-badge{font-size:11px;background:#f0f0f5;color:var(--t2);padding:3px 10px;border-radius:8px;font-weight:500}
+.dias-critico{color:var(--r);font-weight:700}.dias-alerta{color:var(--o);font-weight:600}
+.pbar{width:90px;height:5px;background:#f0f0f5;border-radius:3px;overflow:hidden;display:inline-block;vertical-align:middle}
+.pfill{height:100%;border-radius:3px}
+.bar-col{min-width:100px}
+.ad-thumb{width:48px;height:48px;border-radius:8px;object-fit:cover}.ad-thumb-empty{width:48px;height:48px;border-radius:8px;background:#f0f0f5}
+.ad-cell{width:56px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:1200px){.cards{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:1fr}}
+@media(max-width:768px){.cards{grid-template-columns:repeat(2,1fr)}.hdr{flex-direction:column;align-items:flex-start;gap:8px}.wrap{padding:16px}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <div>
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <h1>Doutor DM2 Diabetes</h1>
+        <div class="sub">Março 2026 — Painel de Performance</div>
+      </div>
+    </div>
+  </div>
+  <div class="hdr-right">
+    <div class="upd">Atualizado em 19/03/2026 10:44</div>
+    <div class="hdr-actions">
+      <span class="agency">Seven Marketing Digital</span>
+    </div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab on" onclick="sw('ov')">Visao Geral</button>
+  <button class="tab" onclick="sw('dl')">Leads Diarios</button>
+  <button class="tab" onclick="sw('bl')">Saldo</button>
+  <button class="tab" onclick="sw('cr')">Criativos</button>
+</div>
+
+<!-- OVERVIEW -->
+<div id="t-ov" class="tc on">
+<div class="cards">
+  <div class="card"><div class="lb">Leads ZapClinic</div><div class="vl blue">5,418</div><div class="sm">19 dias</div></div>
+  <div class="card"><div class="lb">Conversas Meta</div><div class="vl">6,382</div><div class="sm">Perda: 15%</div></div>
+  <div class="card"><div class="lb">Media Diaria</div><div class="vl">285</div><div class="sm">leads / dia</div></div>
+  <div class="card"><div class="lb">Investimento</div><div class="vl">R$ 86,128</div><div class="sm">R$ 4,533 / dia</div></div>
+  <div class="card"><div class="lb">CPL Medio</div><div class="vl green">R$ 15.90</div><div class="sm">custo por lead</div></div>
+  <div class="card"><div class="lb">Unidades Ativas</div><div class="vl green">25</div><div class="sm">de 26</div></div>
+</div>
+
+<div class="chart-c">
+  <h3>Leads por Dia — Rede Completa</h3>
+  <canvas id="ch"></canvas>
+</div>
+
+<div class="tbl-c">
+  <h3>Ranking por CPL</h3>
+  <div class="tw"><table><thead><tr>
+    <th>#</th><th>Unidade</th><th>Leads</th><th>Conversas Meta</th><th>Perda</th>
+    <th>Investido</th><th>CPL Real</th><th>CPL Meta</th>
+    <th>Ontem</th><th>3d</th><th>7d</th><th>Status</th>
+  </tr></thead><tbody>
+  <tr class="ur">
+    <td>1</td><td><strong>Cuiaba</strong></td>
+    <td class="num">72</td>
+    <td class="num msgs">66</td>
+    <td class="cpl ">—</td>
+    <td class="money">R$ 217.74</td>
+    <td class="cpl" style="font-weight:700">R$ 3.02</td>
+    <td class="cpl">R$ 3.30</td>
+    <td class="cpl">R$ 2.79</td>
+    <td class="cpl">R$ 2.79</td>
+    <td class="cpl">R$ 2.79</td>
+    <td class="alert-col"></td>
+  </tr><tr class="ur">
+    <td>2</td><td><strong>Sao Luis</strong></td>
+    <td class="num">506</td>
+    <td class="num msgs">539</td>
+    <td class="cpl ">6%</td>
+    <td class="money">R$ 3,456.62</td>
+    <td class="cpl" style="font-weight:700">R$ 6.83</td>
+    <td class="cpl">R$ 6.41</td>
+    <td class="cpl">R$ 5.74</td>
+    <td class="cpl">R$ 5.97</td>
+    <td class="cpl">R$ 5.76</td>
+    <td class="alert-col"></td>
+  </tr><tr class="ur">
+    <td>3</td><td><strong>Parauapebas</strong></td>
+    <td class="num">91</td>
+    <td class="num msgs">82</td>
+    <td class="cpl ">—</td>
+    <td class="money">R$ 789.99</td>
+    <td class="cpl" style="font-weight:700">R$ 8.68</td>
+    <td class="cpl">R$ 9.63</td>
+    <td class="cpl">R$ 8.07</td>
+    <td class="cpl">R$ 8.44</td>
+    <td class="cpl">R$ 8.52</td>
+    <td class="alert-col"></td>
+  </tr><tr class="ur">
+    <td>4</td><td><strong>Brasilia</strong></td>
+    <td class="num">406</td>
+    <td class="num msgs">453</td>
+    <td class="cpl ">10%</td>
+    <td class="money">R$ 3,945.39</td>
+    <td class="cpl" style="font-weight:700">R$ 9.72</td>
+    <td class="cpl">R$ 8.71</td>
+    <td class="cpl">R$ 10.36</td>
+    <td class="cpl">R$ 8.24</td>
+    <td class="cpl">R$ 9.34</td>
+    <td class="alert-col"><span class="badge badge-green">Otimo</span></td>
+  </tr><tr class="ur">
+    <td>5</td><td><strong>Eunapolis</strong></td>
+    <td class="num">323</td>
+    <td class="num msgs">359</td>
+    <td class="cpl ">10%</td>
+    <td class="money">R$ 3,268.99</td>
+    <td class="cpl" style="font-weight:700">R$ 10.12</td>
+    <td class="cpl">R$ 9.11</td>
+    <td class="cpl">R$ 6.79</td>
+    <td class="cpl">R$ 7.95</td>
+    <td class="cpl">R$ 8.22</td>
+    <td class="alert-col"><span class="badge badge-green">Otimo</span></td>
+  </tr><tr class="ur">
+    <td>6</td><td><strong>Imperatriz</strong></td>
+    <td class="num">306</td>
+    <td class="num msgs">293</td>
+    <td class="cpl ">—</td>
+    <td class="money">R$ 3,173.31</td>
+    <td class="cpl" style="font-weight:700">R$ 10.37</td>
+    <td class="cpl">R$ 10.83</td>
+    <td class="cpl">R$ 12.51</td>
+    <td class="cpl">R$ 12.52</td>
+    <td class="cpl">R$ 10.38</td>
+    <td class="alert-col"><span class="badge badge-orange">Atencao</span></td>
+  </tr><tr class="ur">
+    <td>7</td><td><strong>Recife</strong></td>
+    <td class="num">282</td>
+    <td class="num msgs">340</td>
+    <td class="cpl ">17%</td>
+    <td class="money">R$ 2,943.83</td>
+    <td class="cpl" style="font-weight:700">R$ 10.44</td>
+    <td class="cpl">R$ 8.66</td>
+    <td class="cpl">R$ 10.97</td>
+    <td class="cpl">R$ 10.54</td>
+    <td class="cpl">R$ 11.20</td>
+    <td class="alert-col"></td>
+  </tr><tr class="ur">
+    <td>8</td><td><strong>Campo Grande</strong></td>
+    <td class="num">257</td>
+    <td class="num msgs">305</td>
+    <td class="cpl ">16%</td>
+    <td class="money">R$ 3,065.43</td>
+    <td class="cpl" style="font-weight:700">R$ 11.93</td>
+    <td class="cpl">R$ 10.05</td>
+    <td class="cpl">R$ 14.00</td>
+    <td class="cpl">R$ 13.77</td>
+    <td class="cpl">R$ 11.70</td>
+    <td class="alert-col"><span class="badge badge-orange">Atencao</span></td>
+  </tr><tr class="ur">
+    <td>9</td><td><strong>Anapolis</strong></td>
+    <td class="num">33</td>
+    <td class="num msgs">42</td>
+    <td class="cpl ">21%</td>
+    <td class="money">R$ 402.44</td>
+    <td class="cpl" style="font-weight:700">R$ 12.20</td>
+    <td class="cpl">R$ 9.58</td>
+    <td class="cpl">R$ 10.90</td>
+    <td class="cpl">R$ 10.59</td>
+    <td class="cpl">R$ 10.59</td>
+    <td class="alert-col"></td>
+  </tr><tr class="ur">
+    <td>10</td><td><strong>Montes Claros</strong></td>
+    <td class="num">181</td>
+    <td class="num msgs">269</td>
+    <td class="cpl perda-alta">33%</td>
+    <td class="money">R$ 2,674.66</td>
+    <td class="cpl" style="font-weight:700">R$ 14.78</td>
+    <td class="cpl">R$ 9.94</td>
+    <td class="cpl">R$ 16.78</td>
+    <td class="cpl">R$ 15.46</td>
+    <td class="cpl">R$ 13.38</td>
+    <td class="alert-col"></td>
+  </tr><tr class="ur">
+    <td>11</td><td><strong>Maringa</strong></td>
+    <td class="num">201</td>
+    <td class="num msgs">262</td>
+    <td class="cpl ">23%</td>
+    <td class="money">R$ 3,142.56</td>
+    <td class="cpl" style="font-weight:700">R$ 15.63</td>
+    <td class="cpl">R$ 11.99</td>
+    <td class="cpl">—</td>
+    <td class="cpl">R$ 14.06</td>
+    <td class="cpl">R$ 14.37</td>
+    <td class="alert-col"></td>
+  </tr><tr class="ur">
+    <td>12</td><td><strong>Santo Amaro</strong></td>
+    <td class="num">207</td>
+    <td class="num msgs">214</td>
+    <td class="cpl ">3%</td>
+    <td class="money">R$ 3,432.90</td>
+    <td class="cpl" style="font-weight:700">R$ 16.58</td>
+    <td class="cpl">R$ 16.04</td>
+    <td class="cpl">R$ 10.92</td>
+    <td class="cpl">R$ 11.31</td>
+    <td class="cpl">R$ 12.98</td>
+    <td class="alert-col"><span class="badge badge-green">Otimo</span></td>
+  </tr><tr class="ur">
+    <td>13</td><td><strong>Caxias</strong></td>
+    <td class="num">184</td>
+    <td class="num msgs">211</td>
+    <td class="cpl ">13%</td>
+    <td class="money">R$ 3,301.60</td>
+    <td class="cpl" style="font-weight:700">R$ 17.94</td>
+    <td class="cpl">R$ 15.65</td>
+    <td class="cpl">R$ 9.58</td>
+    <td class="cpl">R$ 16.92</td>
+    <td class="cpl">R$ 18.50</td>
+    <td class="alert-col"></td>
+  </tr><tr class="ur">
+    <td>14</td><td><strong>Marilia</strong></td>
+    <td class="num">161</td>
+    <td class="num msgs">196</td>
+    <td class="cpl ">18%</td>
+    <td class="money">R$ 2,992.29</td>
+    <td class="cpl" style="font-weight:700">R$ 18.59</td>
+    <td class="cpl">R$ 15.27</td>
+    <td class="cpl">R$ 19.27</td>
+    <td class="cpl">R$ 15.53</td>
+    <td class="cpl">R$ 16.95</td>
+    <td class="alert-col"><span class="badge badge-green">Otimo</span></td>
+  </tr><tr class="ur">
+    <td>15</td><td><strong>Osasco</strong></td>
+    <td class="num">210</td>
+    <td class="num msgs">237</td>
+    <td class="cpl ">11%</td>
+    <td class="money">R$ 3,990.31</td>
+    <td class="cpl" style="font-weight:700">R$ 19.00</td>
+    <td class="cpl">R$ 16.84</td>
+    <td class="cpl">R$ 13.04</td>
+    <td class="cpl">R$ 25.11</td>
+    <td class="cpl">R$ 20.08</td>
+    <td class="alert-col"><span class="badge badge-red">CPL Alto</span></td>
+  </tr><tr class="ur">
+    <td>16</td><td><strong>Cachoeiro</strong></td>
+    <td class="num">196</td>
+    <td class="num msgs">202</td>
+    <td class="cpl ">3%</td>
+    <td class="money">R$ 3,729.30</td>
+    <td class="cpl" style="font-weight:700">R$ 19.03</td>
+    <td class="cpl">R$ 18.46</td>
+    <td class="cpl">R$ 50.15</td>
+    <td class="cpl">R$ 21.49</td>
+    <td class="cpl">R$ 18.78</td>
+    <td class="alert-col"></td>
+  </tr><tr class="ur">
+    <td>17</td><td><strong>Governador Valadares</strong></td>
+    <td class="num">242</td>
+    <td class="num msgs">268</td>
+    <td class="cpl ">10%</td>
+    <td class="money">R$ 4,608.17</td>
+    <td class="cpl" style="font-weight:700">R$ 19.04</td>
+    <td class="cpl">R$ 17.19</td>
+    <td class="cpl">R$ 43.28</td>
+    <td class="cpl">R$ 18.80</td>
+    <td class="cpl">R$ 18.49</td>
+    <td class="alert-col"></td>
+  </tr><tr class="ur">
+    <td>18</td><td><strong>Lapa</strong></td>
+    <td class="num">169</td>
+    <td class="num msgs">233</td>
+    <td class="cpl ">28%</td>
+    <td class="money">R$ 3,616.02</td>
+    <td class="cpl" style="font-weight:700">R$ 21.40</td>
+    <td class="cpl">R$ 15.52</td>
+    <td class="cpl">R$ 12.31</td>
+    <td class="cpl">R$ 17.54</td>
+    <td class="cpl">R$ 20.18</td>
+    <td class="alert-col"><span class="badge badge-green">Otimo</span></td>
+  </tr><tr class="ur">
+    <td>19</td><td><strong>Vitoria</strong></td>
+    <td class="num">309</td>
+    <td class="num msgs">443</td>
+    <td class="cpl perda-alta">30%</td>
+    <td class="money">R$ 6,706.01</td>
+    <td class="cpl" style="font-weight:700">R$ 21.70</td>
+    <td class="cpl">R$ 15.14</td>
+    <td class="cpl">R$ 14.40</td>
+    <td class="cpl">R$ 21.28</td>
+    <td class="cpl">R$ 17.52</td>
+    <td class="alert-col"></td>
+  </tr><tr class="ur">
+    <td>20</td><td><strong>Colatina</strong></td>
+    <td class="num">162</td>
+    <td class="num msgs">215</td>
+    <td class="cpl ">25%</td>
+    <td class="money">R$ 3,571.32</td>
+    <td class="cpl" style="font-weight:700">R$ 22.05</td>
+    <td class="cpl">R$ 16.61</td>
+    <td class="cpl">—</td>
+    <td class="cpl">R$ 10.44</td>
+    <td class="cpl">R$ 18.79</td>
+    <td class="alert-col"><span class="badge badge-green">Otimo</span></td>
+  </tr><tr class="ur">
+    <td>21</td><td><strong>Linhares</strong></td>
+    <td class="num">178</td>
+    <td class="num msgs">210</td>
+    <td class="cpl ">15%</td>
+    <td class="money">R$ 3,959.12</td>
+    <td class="cpl" style="font-weight:700">R$ 22.24</td>
+    <td class="cpl">R$ 18.85</td>
+    <td class="cpl">R$ 17.76</td>
+    <td class="cpl">R$ 20.64</td>
+    <td class="cpl">R$ 22.86</td>
+    <td class="alert-col"></td>
+  </tr><tr class="ur">
+    <td>22</td><td><strong>Campos dos Goytacazes</strong></td>
+    <td class="num">175</td>
+    <td class="num msgs">226</td>
+    <td class="cpl ">23%</td>
+    <td class="money">R$ 4,232.21</td>
+    <td class="cpl" style="font-weight:700">R$ 24.18</td>
+    <td class="cpl">R$ 18.73</td>
+    <td class="cpl">—</td>
+    <td class="cpl">R$ 13.03</td>
+    <td class="cpl">R$ 15.36</td>
+    <td class="alert-col"><span class="badge badge-green">Otimo</span></td>
+  </tr><tr class="ur">
+    <td>23</td><td><strong>Sao Jose do Rio Preto</strong></td>
+    <td class="num">167</td>
+    <td class="num msgs">228</td>
+    <td class="cpl ">27%</td>
+    <td class="money">R$ 4,246.97</td>
+    <td class="cpl" style="font-weight:700">R$ 25.43</td>
+    <td class="cpl">R$ 18.63</td>
+    <td class="cpl">—</td>
+    <td class="cpl">R$ 25.31</td>
+    <td class="cpl">R$ 22.41</td>
+    <td class="alert-col"></td>
+  </tr><tr class="ur">
+    <td>24</td><td><strong>Jundiai</strong></td>
+    <td class="num">229</td>
+    <td class="num msgs">238</td>
+    <td class="cpl ">4%</td>
+    <td class="money">R$ 5,827.86</td>
+    <td class="cpl" style="font-weight:700">R$ 25.45</td>
+    <td class="cpl">R$ 24.49</td>
+    <td class="cpl">R$ 146.18</td>
+    <td class="cpl">R$ 35.38</td>
+    <td class="cpl">R$ 28.93</td>
+    <td class="alert-col"><span class="badge badge-red">CPL Alto</span></td>
+  </tr><tr class="ur">
+    <td>25</td><td><strong>Vila Velha</strong></td>
+    <td class="num">171</td>
+    <td class="num msgs">251</td>
+    <td class="cpl perda-alta">32%</td>
+    <td class="money">R$ 4,833.23</td>
+    <td class="cpl" style="font-weight:700">R$ 28.26</td>
+    <td class="cpl">R$ 19.26</td>
+    <td class="cpl">R$ 39.82</td>
+    <td class="cpl">R$ 35.93</td>
+    <td class="cpl">R$ 29.59</td>
+    <td class="alert-col"><span class="badge badge-orange">Atencao</span></td>
+  </tr>
+  </tbody></table></div>
+</div>
+</div>
+
+<!-- LEADS DIÁRIOS -->
+<div id="t-dl" class="tc">
+<div class="tbl-c">
+  <h3>Leads Cadastrados por Dia</h3>
+  <div class="tw"><table><thead><tr>
+    <th></th><th>Unidade</th>
+    <th class="dh">1</th><th class="dh">2</th><th class="dh">3</th><th class="dh">4</th><th class="dh">5</th><th class="dh">6</th><th class="dh">7</th><th class="dh">8</th><th class="dh">9</th><th class="dh">10</th><th class="dh">11</th><th class="dh">12</th><th class="dh">13</th><th class="dh">14</th><th class="dh">15</th><th class="dh">16</th><th class="dh">17</th><th class="dh">18</th><th class="dh">19</th><th class="dh">20</th><th class="dh">21</th><th class="dh">22</th><th class="dh">23</th><th class="dh">24</th><th class="dh">25</th><th class="dh">26</th><th class="dh">27</th><th class="dh">28</th><th class="dh">29</th><th class="dh">30</th><th class="dh">31</th>
+    <th class="num">Total</th><th class="num">Media</th>
+    <th class="num">Conv. Meta</th>
+    <th class="money">Investido</th><th class="money">Media/Dia</th>
+    <th class="cpl">CPL Real</th><th class="cpl">CPL Meta</th><th class="cpl">Perda</th>
+    <th class="cpl">Ontem</th><th class="cpl">3 dias</th><th class="cpl">7 dias</th>
+    <th>Alerta</th>
+  </tr></thead><tbody>
+  <tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Vitoria</strong><span class="est">ES</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.51);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">12</td><td class="dc" style="background:rgba(0,122,255,0.39);color:#1d1d1f">11</td><td class="dc" style="background:rgba(0,122,255,0.51);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">10</td><td class="dc" style="background:rgba(0,122,255,0.66);color:#fff">22</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.63);color:#fff">21</td><td class="dc" style="background:rgba(0,122,255,0.83);color:#fff">29</td><td class="dc" style="background:rgba(0,122,255,0.24);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">36</td><td class="dc" style="background:rgba(0,122,255,0.39);color:#1d1d1f">11</td><td class="dc" style="background:rgba(0,122,255,0.76);color:#fff">26</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">10</td><td class="dc" style="background:rgba(0,122,255,0.71);color:#fff">24</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">9</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>309</strong></td>
+<td class="num">16.3</td>
+<td class="num msgs">443</td>
+<td class="money">R$ 6,706.01</td>
+<td class="money">R$ 352.95</td>
+<td class="cpl">R$ 21.70</td>
+<td class="cpl">R$ 15.14</td>
+<td class="cpl perda-alta">30%</td>
+<td class="cpl">R$ 14.40</td>
+<td class="cpl">R$ 21.28</td>
+<td class="cpl tdn">R$ 17.52 <small class="arr">&#9660;</small></td>
+<td class="alert-col"></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Vila Velha</strong><span class="est">ES</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.40);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.44);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.44);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">22</td><td class="dc" style="background:rgba(0,122,255,0.52);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.60);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.40);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.24);color:#1d1d1f">3</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>171</strong></td>
+<td class="num">9.0</td>
+<td class="num msgs">251</td>
+<td class="money">R$ 4,833.23</td>
+<td class="money">R$ 254.38</td>
+<td class="cpl">R$ 28.26</td>
+<td class="cpl">R$ 19.26</td>
+<td class="cpl perda-alta">32%</td>
+<td class="cpl">R$ 39.82</td>
+<td class="cpl">R$ 35.93</td>
+<td class="cpl tst">R$ 29.59 <small class="arr">—</small></td>
+<td class="alert-col"><span class="badge badge-orange">Atencao</span></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-orange" title="Dados da planilha manual"></span></td>
+<td class="cn"><strong>Cachoeiro</strong><span class="est">ES</span></td>
+<td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.24);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.44);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.88);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.52);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.76);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">22</td><td class="dc" style="background:rgba(0,122,255,0.92);color:#fff">20</td><td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.92);color:#fff">20</td><td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">4</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>196</strong></td>
+<td class="num">10.9</td>
+<td class="num msgs">202</td>
+<td class="money">R$ 3,729.30</td>
+<td class="money">R$ 196.28</td>
+<td class="cpl">R$ 19.03</td>
+<td class="cpl">R$ 18.46</td>
+<td class="cpl ">3%</td>
+<td class="cpl">R$ 50.15</td>
+<td class="cpl">R$ 21.49</td>
+<td class="cpl tst">R$ 18.78 <small class="arr">—</small></td>
+<td class="alert-col"></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-orange" title="Dados da planilha manual"></span></td>
+<td class="cn"><strong>Campos dos Goytacazes</strong><span class="est">RJ</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">5</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.51);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.35);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.19);color:#1d1d1f">2</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">27</td><td class="dc" style="background:rgba(0,122,255,0.77);color:#fff">20</td><td class="dc" style="background:rgba(0,122,255,0.61);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">11</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">11</td><td class="dc" style="background:rgba(0,122,255,0.93);color:#fff">25</td><td class="dc" style="background:rgba(0,122,255,0.22);color:#1d1d1f">3</td><td class="dc zero">0</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>175</strong></td>
+<td class="num">9.7</td>
+<td class="num msgs">226</td>
+<td class="money">R$ 4,232.21</td>
+<td class="money">R$ 222.75</td>
+<td class="cpl">R$ 24.18</td>
+<td class="cpl">R$ 18.73</td>
+<td class="cpl ">23%</td>
+<td class="cpl">—</td>
+<td class="cpl">R$ 13.03</td>
+<td class="cpl tdn">R$ 15.36 <small class="arr">&#9660;</small></td>
+<td class="alert-col"><span class="badge badge-green">Otimo</span></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Linhares</strong><span class="est">ES</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.45);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.45);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">8</td><td class="dc" style="background:rgba(0,122,255,0.78);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.83);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.61);color:#fff">9</td><td class="dc" style="background:rgba(0,122,255,0.45);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.89);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.45);color:#1d1d1f">6</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>178</strong></td>
+<td class="num">9.4</td>
+<td class="num msgs">210</td>
+<td class="money">R$ 3,959.12</td>
+<td class="money">R$ 208.37</td>
+<td class="cpl">R$ 22.24</td>
+<td class="cpl">R$ 18.85</td>
+<td class="cpl ">15%</td>
+<td class="cpl">R$ 17.76</td>
+<td class="cpl">R$ 20.64</td>
+<td class="cpl tst">R$ 22.86 <small class="arr">—</small></td>
+<td class="alert-col"></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Santo Amaro</strong><span class="est">SP</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.47);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.87);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.65);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.69);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.82);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.47);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.60);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">20</td><td class="dc" style="background:rgba(0,122,255,0.74);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.87);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.87);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.65);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">4</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>207</strong></td>
+<td class="num">10.9</td>
+<td class="num msgs">214</td>
+<td class="money">R$ 3,432.90</td>
+<td class="money">R$ 180.68</td>
+<td class="cpl">R$ 16.58</td>
+<td class="cpl">R$ 16.04</td>
+<td class="cpl ">3%</td>
+<td class="cpl">R$ 10.92</td>
+<td class="cpl">R$ 11.31</td>
+<td class="cpl tdn">R$ 12.98 <small class="arr">&#9660;</small></td>
+<td class="alert-col"><span class="badge badge-green">Otimo</span></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-orange" title="Dados da planilha manual"></span></td>
+<td class="cn"><strong>Sao Jose do Rio Preto</strong><span class="est">SP</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.25);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.25);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.29);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.66);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">21</td><td class="dc zero">0</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>167</strong></td>
+<td class="num">9.3</td>
+<td class="num msgs">228</td>
+<td class="money">R$ 4,246.97</td>
+<td class="money">R$ 223.52</td>
+<td class="cpl">R$ 25.43</td>
+<td class="cpl">R$ 18.63</td>
+<td class="cpl ">27%</td>
+<td class="cpl">—</td>
+<td class="cpl">R$ 25.31</td>
+<td class="cpl tdn">R$ 22.41 <small class="arr">&#9660;</small></td>
+<td class="alert-col"></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-orange" title="Dados da planilha manual"></span></td>
+<td class="cn"><strong>Governador Valadares</strong><span class="est">MG</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.49);color:#1d1d1f">10</td><td class="dc" style="background:rgba(0,122,255,0.52);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.78);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.89);color:#fff">21</td><td class="dc" style="background:rgba(0,122,255,0.96);color:#fff">23</td><td class="dc" style="background:rgba(0,122,255,0.52);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.60);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.82);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.63);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">24</td><td class="dc" style="background:rgba(0,122,255,0.93);color:#fff">22</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">6</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>242</strong></td>
+<td class="num">13.4</td>
+<td class="num msgs">268</td>
+<td class="money">R$ 4,608.17</td>
+<td class="money">R$ 242.54</td>
+<td class="cpl">R$ 19.04</td>
+<td class="cpl">R$ 17.19</td>
+<td class="cpl ">10%</td>
+<td class="cpl">R$ 43.28</td>
+<td class="cpl">R$ 18.80</td>
+<td class="cpl tst">R$ 18.49 <small class="arr">—</small></td>
+<td class="alert-col"></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Eunapolis</strong><span class="est">BA</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.31);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.55);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">11</td><td class="dc" style="background:rgba(0,122,255,0.15);color:#1d1d1f">1</td><td class="dc" style="background:rgba(0,122,255,0.47);color:#1d1d1f">13</td><td class="dc" style="background:rgba(0,122,255,0.63);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.52);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.63);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.87);color:#fff">28</td><td class="dc" style="background:rgba(0,122,255,0.79);color:#fff">25</td><td class="dc" style="background:rgba(0,122,255,0.63);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.57);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.87);color:#fff">28</td><td class="dc" style="background:rgba(0,122,255,0.39);color:#1d1d1f">10</td><td class="dc" style="background:rgba(0,122,255,0.55);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">33</td><td class="dc" style="background:rgba(0,122,255,0.97);color:#fff">32</td><td class="dc" style="background:rgba(0,122,255,0.25);color:#1d1d1f">5</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>323</strong></td>
+<td class="num">17.0</td>
+<td class="num msgs">359</td>
+<td class="money">R$ 3,268.99</td>
+<td class="money">R$ 172.05</td>
+<td class="cpl">R$ 10.12</td>
+<td class="cpl">R$ 9.11</td>
+<td class="cpl ">10%</td>
+<td class="cpl">R$ 6.79</td>
+<td class="cpl">R$ 7.95</td>
+<td class="cpl tdn">R$ 8.22 <small class="arr">&#9660;</small></td>
+<td class="alert-col"><span class="badge badge-green">Otimo</span></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-orange" title="Dados da planilha manual"></span></td>
+<td class="cn"><strong>Jundiai</strong><span class="est">SP</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.39);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">23</td><td class="dc" style="background:rgba(0,122,255,0.89);color:#fff">20</td><td class="dc" style="background:rgba(0,122,255,0.66);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.39);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.77);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.85);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.69);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.20);color:#1d1d1f">2</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>229</strong></td>
+<td class="num">12.7</td>
+<td class="num msgs">238</td>
+<td class="money">R$ 5,827.86</td>
+<td class="money">R$ 306.73</td>
+<td class="cpl">R$ 25.45</td>
+<td class="cpl">R$ 24.49</td>
+<td class="cpl ">4%</td>
+<td class="cpl">R$ 146.18</td>
+<td class="cpl">R$ 35.38</td>
+<td class="cpl tup">R$ 28.93 <small class="arr">&#9650;</small></td>
+<td class="alert-col"><span class="badge badge-red">CPL Alto</span></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Marilia</strong><span class="est">SP</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.74);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.79);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.79);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,0.33);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.74);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.79);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.33);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.53);color:#fff">8</td><td class="dc" style="background:rgba(0,122,255,0.74);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.53);color:#fff">8</td><td class="dc" style="background:rgba(0,122,255,0.33);color:#1d1d1f">4</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>161</strong></td>
+<td class="num">8.5</td>
+<td class="num msgs">196</td>
+<td class="money">R$ 2,992.29</td>
+<td class="money">R$ 157.49</td>
+<td class="cpl">R$ 18.59</td>
+<td class="cpl">R$ 15.27</td>
+<td class="cpl ">18%</td>
+<td class="cpl">R$ 19.27</td>
+<td class="cpl">R$ 15.53</td>
+<td class="cpl tst">R$ 16.95 <small class="arr">—</small></td>
+<td class="alert-col"><span class="badge badge-green">Otimo</span></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Maringa</strong><span class="est">PR</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.75);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.71);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.66);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.33);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.66);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.83);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">21</td><td class="dc" style="background:rgba(0,122,255,0.79);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.83);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">8</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.16);color:#1d1d1f">1</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>201</strong></td>
+<td class="num">10.6</td>
+<td class="num msgs">262</td>
+<td class="money">R$ 3,142.56</td>
+<td class="money">R$ 165.40</td>
+<td class="cpl">R$ 15.63</td>
+<td class="cpl">R$ 11.99</td>
+<td class="cpl ">23%</td>
+<td class="cpl">—</td>
+<td class="cpl">R$ 14.06</td>
+<td class="cpl tst">R$ 14.37 <small class="arr">—</small></td>
+<td class="alert-col"></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-orange" title="Dados da planilha manual"></span></td>
+<td class="cn"><strong>Anapolis</strong><span class="est">GO</span></td>
+<td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.85);color:#fff">15</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>33</strong></td>
+<td class="num">16.5</td>
+<td class="num msgs">42</td>
+<td class="money">R$ 402.44</td>
+<td class="money">R$ 21.18</td>
+<td class="cpl">R$ 12.20</td>
+<td class="cpl">R$ 9.58</td>
+<td class="cpl ">21%</td>
+<td class="cpl">R$ 10.90</td>
+<td class="cpl">R$ 10.59</td>
+<td class="cpl tdn">R$ 10.59 <small class="arr">&#9660;</small></td>
+<td class="alert-col"></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Colatina</strong><span class="est">ES</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.22);color:#1d1d1f">2</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">9</td><td class="dc" style="background:rgba(0,122,255,0.27);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.71);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.76);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.22);color:#1d1d1f">2</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">9</td><td class="dc" style="background:rgba(0,122,255,0.95);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.80);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.61);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.71);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.85);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">4</td><td class="dc zero">0</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>162</strong></td>
+<td class="num">8.5</td>
+<td class="num msgs">215</td>
+<td class="money">R$ 3,571.32</td>
+<td class="money">R$ 187.96</td>
+<td class="cpl">R$ 22.05</td>
+<td class="cpl">R$ 16.61</td>
+<td class="cpl ">25%</td>
+<td class="cpl">—</td>
+<td class="cpl">R$ 10.44</td>
+<td class="cpl tdn">R$ 18.79 <small class="arr">&#9660;</small></td>
+<td class="alert-col"><span class="badge badge-green">Otimo</span></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Osasco</strong><span class="est">SP</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.23);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,0.73);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.73);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.39);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.31);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.39);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.81);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.81);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.66);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.31);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">23</td><td class="dc" style="background:rgba(0,122,255,0.27);color:#1d1d1f">4</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>210</strong></td>
+<td class="num">11.1</td>
+<td class="num msgs">237</td>
+<td class="money">R$ 3,990.31</td>
+<td class="money">R$ 210.02</td>
+<td class="cpl">R$ 19.00</td>
+<td class="cpl">R$ 16.84</td>
+<td class="cpl ">11%</td>
+<td class="cpl">R$ 13.04</td>
+<td class="cpl">R$ 25.11</td>
+<td class="cpl tst">R$ 20.08 <small class="arr">—</small></td>
+<td class="alert-col"><span class="badge badge-red">CPL Alto</span></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Lapa</strong><span class="est">SP</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.22);color:#1d1d1f">2</td><td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.90);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.33);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.59);color:#fff">9</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.69);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.59);color:#fff">9</td><td class="dc" style="background:rgba(0,122,255,0.69);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.79);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.90);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">6</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>169</strong></td>
+<td class="num">8.9</td>
+<td class="num msgs">233</td>
+<td class="money">R$ 3,616.02</td>
+<td class="money">R$ 190.32</td>
+<td class="cpl">R$ 21.40</td>
+<td class="cpl">R$ 15.52</td>
+<td class="cpl ">28%</td>
+<td class="cpl">R$ 12.31</td>
+<td class="cpl">R$ 17.54</td>
+<td class="cpl tst">R$ 20.18 <small class="arr">—</small></td>
+<td class="alert-col"><span class="badge badge-green">Otimo</span></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Brasilia</strong><span class="est">DF</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">25</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">30</td><td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">13</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">23</td><td class="dc" style="background:rgba(0,122,255,0.42);color:#1d1d1f">15</td><td class="dc" style="background:rgba(0,122,255,0.66);color:#fff">27</td><td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">17</td><td class="dc" style="background:rgba(0,122,255,0.60);color:#fff">24</td><td class="dc" style="background:rgba(0,122,255,0.20);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.14);color:#1d1d1f">1</td><td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">26</td><td class="dc" style="background:rgba(0,122,255,0.96);color:#fff">42</td><td class="dc" style="background:rgba(0,122,255,0.90);color:#fff">39</td><td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.78);color:#fff">33</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">44</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">19</td><td class="dc" style="background:rgba(0,122,255,0.26);color:#1d1d1f">7</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>406</strong></td>
+<td class="num">21.4</td>
+<td class="num msgs">453</td>
+<td class="money">R$ 3,945.39</td>
+<td class="money">R$ 207.65</td>
+<td class="cpl">R$ 9.72</td>
+<td class="cpl">R$ 8.71</td>
+<td class="cpl ">10%</td>
+<td class="cpl">R$ 10.36</td>
+<td class="cpl">R$ 8.24</td>
+<td class="cpl tst">R$ 9.34 <small class="arr">—</small></td>
+<td class="alert-col"><span class="badge badge-green">Otimo</span></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Sao Luis</strong><span class="est">MA</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">15</td><td class="dc" style="background:rgba(0,122,255,0.52);color:#fff">24</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">53</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">28</td><td class="dc" style="background:rgba(0,122,255,0.49);color:#1d1d1f">22</td><td class="dc" style="background:rgba(0,122,255,0.35);color:#1d1d1f">14</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">25</td><td class="dc" style="background:rgba(0,122,255,0.27);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#fff">23</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">25</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">36</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">30</td><td class="dc" style="background:rgba(0,122,255,0.70);color:#fff">35</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">28</td><td class="dc" style="background:rgba(0,122,255,0.27);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.78);color:#fff">40</td><td class="dc" style="background:rgba(0,122,255,0.87);color:#fff">45</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">33</td><td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">12</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>506</strong></td>
+<td class="num">26.6</td>
+<td class="num msgs">539</td>
+<td class="money">R$ 3,456.62</td>
+<td class="money">R$ 181.93</td>
+<td class="cpl">R$ 6.83</td>
+<td class="cpl">R$ 6.41</td>
+<td class="cpl ">6%</td>
+<td class="cpl">R$ 5.74</td>
+<td class="cpl">R$ 5.97</td>
+<td class="cpl tdn">R$ 5.76 <small class="arr">&#9660;</small></td>
+<td class="alert-col"></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Caxias</strong><span class="est">MA</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.27);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.63);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.60);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.63);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.45);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.45);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.27);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">24</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">12</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>184</strong></td>
+<td class="num">9.7</td>
+<td class="num msgs">211</td>
+<td class="money">R$ 3,301.60</td>
+<td class="money">R$ 173.77</td>
+<td class="cpl">R$ 17.94</td>
+<td class="cpl">R$ 15.65</td>
+<td class="cpl ">13%</td>
+<td class="cpl">R$ 9.58</td>
+<td class="cpl">R$ 16.92</td>
+<td class="cpl tst">R$ 18.50 <small class="arr">—</small></td>
+<td class="alert-col"></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Campo Grande</strong><span class="est">MS</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.61);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.51);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.51);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">15</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">12</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">29</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.76);color:#fff">21</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.15);color:#1d1d1f">1</td><td class="dc" style="background:rgba(0,122,255,0.61);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">12</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>257</strong></td>
+<td class="num">13.5</td>
+<td class="num msgs">305</td>
+<td class="money">R$ 3,065.43</td>
+<td class="money">R$ 161.34</td>
+<td class="cpl">R$ 11.93</td>
+<td class="cpl">R$ 10.05</td>
+<td class="cpl ">16%</td>
+<td class="cpl">R$ 14.00</td>
+<td class="cpl">R$ 13.77</td>
+<td class="cpl tst">R$ 11.70 <small class="arr">—</small></td>
+<td class="alert-col"><span class="badge badge-orange">Atencao</span></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Recife</strong><span class="est">PE</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.84);color:#fff">23</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">28</td><td class="dc" style="background:rgba(0,122,255,0.94);color:#fff">26</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">12</td><td class="dc" style="background:rgba(0,122,255,0.65);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.75);color:#fff">20</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">10</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.59);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">10</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">12</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">12</td><td class="dc" style="background:rgba(0,122,255,0.75);color:#fff">20</td><td class="dc" style="background:rgba(0,122,255,0.59);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">7</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>282</strong></td>
+<td class="num">14.8</td>
+<td class="num msgs">340</td>
+<td class="money">R$ 2,943.83</td>
+<td class="money">R$ 154.94</td>
+<td class="cpl">R$ 10.44</td>
+<td class="cpl">R$ 8.66</td>
+<td class="cpl ">17%</td>
+<td class="cpl">R$ 10.97</td>
+<td class="cpl">R$ 10.54</td>
+<td class="cpl tst">R$ 11.20 <small class="arr">—</small></td>
+<td class="alert-col"></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Imperatriz</strong><span class="est">MA</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">13</td><td class="dc" style="background:rgba(0,122,255,0.55);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">13</td><td class="dc" style="background:rgba(0,122,255,0.21);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.44);color:#1d1d1f">14</td><td class="dc" style="background:rgba(0,122,255,0.53);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">39</td><td class="dc" style="background:rgba(0,122,255,0.75);color:#fff">28</td><td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">11</td><td class="dc" style="background:rgba(0,122,255,0.53);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.53);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.73);color:#fff">27</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">23</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">13</td><td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">11</td><td class="dc" style="background:rgba(0,122,255,0.17);color:#1d1d1f">2</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>306</strong></td>
+<td class="num">16.1</td>
+<td class="num msgs">293</td>
+<td class="money">R$ 3,173.31</td>
+<td class="money">R$ 167.02</td>
+<td class="cpl">R$ 10.37</td>
+<td class="cpl">R$ 10.83</td>
+<td class="cpl ">—</td>
+<td class="cpl">R$ 12.51</td>
+<td class="cpl">R$ 12.52</td>
+<td class="cpl tst">R$ 10.38 <small class="arr">—</small></td>
+<td class="alert-col"><span class="badge badge-orange">Atencao</span></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Montes Claros</strong><span class="est">MG</span></td>
+<td class="dc" style="background:rgba(0,122,255,0.25);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">7</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">21</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.87);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.83);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.25);color:#1d1d1f">3</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>181</strong></td>
+<td class="num">9.5</td>
+<td class="num msgs">269</td>
+<td class="money">R$ 2,674.66</td>
+<td class="money">R$ 140.77</td>
+<td class="cpl">R$ 14.78</td>
+<td class="cpl">R$ 9.94</td>
+<td class="cpl perda-alta">33%</td>
+<td class="cpl">R$ 16.78</td>
+<td class="cpl">R$ 15.46</td>
+<td class="cpl tst">R$ 13.38 <small class="arr">—</small></td>
+<td class="alert-col"></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Parauapebas</strong><span class="est">PA</span></td>
+<td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.27);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.24);color:#1d1d1f">4</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.82);color:#fff">24</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">30</td><td class="dc" style="background:rgba(0,122,255,0.82);color:#fff">24</td><td class="dc" style="background:rgba(0,122,255,0.24);color:#1d1d1f">4</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>91</strong></td>
+<td class="num">4.8</td>
+<td class="num msgs">82</td>
+<td class="money">R$ 789.99</td>
+<td class="money">R$ 41.58</td>
+<td class="cpl">R$ 8.68</td>
+<td class="cpl">R$ 9.63</td>
+<td class="cpl ">—</td>
+<td class="cpl">R$ 8.07</td>
+<td class="cpl">R$ 8.44</td>
+<td class="cpl tst">R$ 8.52 <small class="arr">—</small></td>
+<td class="alert-col"></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-green"></span></td>
+<td class="cn"><strong>Cuiaba</strong><span class="est">MT</span></td>
+<td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">47</td><td class="dc" style="background:rgba(0,122,255,0.59);color:#fff">25</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>72</strong></td>
+<td class="num">3.8</td>
+<td class="num msgs">66</td>
+<td class="money">R$ 217.74</td>
+<td class="money">R$ 11.46</td>
+<td class="cpl">R$ 3.02</td>
+<td class="cpl">R$ 3.30</td>
+<td class="cpl ">—</td>
+<td class="cpl">R$ 2.79</td>
+<td class="cpl">R$ 2.79</td>
+<td class="cpl tst">R$ 2.79 <small class="arr">—</small></td>
+<td class="alert-col"></td>
+</tr><tr class="ur">
+<td class="cs"><span class="dot dot-gray"></span></td>
+<td class="cn"><strong>Porto Alegre</strong><span class="est">RS</span></td>
+<td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>0</strong></td>
+<td class="num">0.0</td>
+<td class="num msgs">0</td>
+<td class="money">R$ 0.00</td>
+<td class="money">R$ 0.00</td>
+<td class="cpl">—</td>
+<td class="cpl">—</td>
+<td class="cpl ">—</td>
+<td class="cpl">—</td>
+<td class="cpl">—</td>
+<td class="cpl ">— <small class="arr"></small></td>
+<td class="alert-col"></td>
+</tr>
+  <tr class="tr-total">
+    <td></td><td><strong>TOTAL</strong></td>
+    <td class="dc dtot">145</td><td class="dc dtot">244</td><td class="dc dtot">351</td><td class="dc dtot">285</td><td class="dc dtot">251</td><td class="dc dtot">212</td><td class="dc dtot">286</td><td class="dc dtot">176</td><td class="dc dtot">348</td><td class="dc dtot">333</td><td class="dc dtot">336</td><td class="dc dtot">336</td><td class="dc dtot">289</td><td class="dc dtot">349</td><td class="dc dtot">200</td><td class="dc dtot">375</td><td class="dc dtot">415</td><td class="dc dtot">361</td><td class="dc dtot">126</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+    <td class="num"><strong>5418</strong></td>
+    <td class="num">285.2</td>
+    <td class="num msgs">6382</td>
+    <td class="money"><strong>R$ 86,128.27</strong></td>
+    <td class="money">R$ 4,533.07</td>
+    <td class="cpl"><strong>R$ 15.90</strong></td>
+    <td class="cpl">R$ 13.50</td>
+    <td class="cpl">15%</td>
+    <td colspan="4"></td>
+  </tr>
+  </tbody></table></div>
+</div>
+</div>
+
+<!-- SALDO -->
+<div id="t-bl" class="tc">
+<div class="tbl-c">
+  <h3>Saldo e Previsao</h3>
+  <div class="tw"><table><thead><tr>
+    <th>Unidade</th><th>Status</th><th>Saldo Atual</th>
+    <th>Media Gasto/Dia</th><th>Previsao</th><th></th>
+  </tr></thead><tbody>
+  <tr class="ur">
+<td class="cn"><strong>Vitoria</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money"><span class="cc-badge">Cartao de Credito</span></td>
+<td class="money">R$ 352.95</td>
+<td class="num">—</td>
+<td class="bar-col"></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Vila Velha</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 95.20</td>
+<td class="money">R$ 254.38</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Cachoeiro</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 73.50</td>
+<td class="money">R$ 196.28</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Campos dos Goytacazes</strong></td>
+<td class="num"><span class="st-warn">Suspensa</span></td>
+<td class="money">R$ 112.17</td>
+<td class="money">R$ 222.75</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Linhares</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 64.53</td>
+<td class="money">R$ 208.37</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Santo Amaro</strong></td>
+<td class="num"><span class="st-warn">Gratuito</span></td>
+<td class="money"><span class="cc-badge">Cartao de Credito</span></td>
+<td class="money">R$ 180.68</td>
+<td class="num">—</td>
+<td class="bar-col"></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Sao Jose do Rio Preto</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 83.99</td>
+<td class="money">R$ 223.52</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Governador Valadares</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money"><span class="cc-badge">Cartao de Credito</span></td>
+<td class="money">R$ 242.54</td>
+<td class="num">—</td>
+<td class="bar-col"></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Eunapolis</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 65.55</td>
+<td class="money">R$ 172.05</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Jundiai</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 91.68</td>
+<td class="money">R$ 306.73</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Marilia</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 63.31</td>
+<td class="money">R$ 157.49</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Maringa</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 0.16</td>
+<td class="money">R$ 165.40</td>
+<td class="num">—</td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Anapolis</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 52.49</td>
+<td class="money">R$ 21.18</td>
+<td class="num"><span class="dias-critico">2 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Colatina</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 0.00</td>
+<td class="money">R$ 187.96</td>
+<td class="num">—</td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Osasco</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 84.50</td>
+<td class="money">R$ 210.02</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Lapa</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 61.72</td>
+<td class="money">R$ 190.32</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Brasilia</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 57.73</td>
+<td class="money">R$ 207.65</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Sao Luis</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 60.20</td>
+<td class="money">R$ 181.93</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Caxias</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 68.04</td>
+<td class="money">R$ 173.77</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Campo Grande</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 82.18</td>
+<td class="money">R$ 161.34</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Recife</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 51.16</td>
+<td class="money">R$ 154.94</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Imperatriz</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 0.00</td>
+<td class="money">R$ 167.02</td>
+<td class="num">—</td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Montes Claros</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 57.09</td>
+<td class="money">R$ 140.77</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Parauapebas</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 48.12</td>
+<td class="money">R$ 41.58</td>
+<td class="num"><span class="dias-critico">1 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:95%;background:#FF3B30"></div></div></td>
+</tr><tr class="ur">
+<td class="cn"><strong>Cuiaba</strong></td>
+<td class="num"><span class="st-ok">Ativa</span></td>
+<td class="money">R$ 86.24</td>
+<td class="money">R$ 11.46</td>
+<td class="num">8 dias</td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:93%;background:#FF3B30"></div></div></td>
+</tr>
+  </tbody></table></div>
+</div>
+</div>
+
+<!-- CRIATIVOS -->
+<div id="t-cr" class="tc">
+
+<div class="tbl-c">
+  <h3>Top 10 Criativos que Mais Convertem (volume de conversas)</h3>
+  <p style="padding:0 22px 10px;color:#86868b;font-size:13px">Proxy de agendamentos — criativos que geram mais conversas iniciadas no WhatsApp</p>
+  <div class="tw"><table><thead><tr>
+    <th>#</th><th></th><th>Anuncio</th><th>Gasto</th>
+    <th>Cliques</th><th>CTR</th><th>Conversas</th><th>Taxa Conv.</th><th>CPL</th>
+  </tr></thead><tbody>
+  <tr class="ur">
+<td class="num">1</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads chamada paty — Cópia</strong><br><span class="est">Brasilia — 31/08 [vendas] [wpp] [km-clinica] [</span></td>
+<td class="money">R$ 1,810.17</td>
+<td class="num">919</td>
+<td class="num">1.40%</td>
+<td class="num" style="font-weight:700;color:#007AFF">243</td>
+<td class="num">26.4%</td>
+<td class="cpl">R$ 7.45</td>
+</tr><tr class="ur">
+<td class="num">2</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads sao luis paty</strong><br><span class="est">Sao Luis — 22/01 [vendas] [wpp] [cidade] [empr</span></td>
+<td class="money">R$ 550.91</td>
+<td class="num">852</td>
+<td class="num">1.88%</td>
+<td class="num" style="font-weight:700;color:#007AFF">189</td>
+<td class="num">22.2%</td>
+<td class="cpl">R$ 2.91</td>
+</tr><tr class="ur">
+<td class="num">3</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>Ads geral paty</strong><br><span class="est">Recife — 25/11 [vendas] [wpp] [bairros + km </span></td>
+<td class="money">R$ 649.37</td>
+<td class="num">608</td>
+<td class="num">2.54%</td>
+<td class="num" style="font-weight:700;color:#007AFF">130</td>
+<td class="num">21.4%</td>
+<td class="cpl">R$ 5.00</td>
+</tr><tr class="ur">
+<td class="num">4</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads voce tem dm2 gv</strong><br><span class="est">Governador Valadares — 26/02 [vendas] [wpp] [ceps-bairros]</span></td>
+<td class="money">R$ 2,057.52</td>
+<td class="num">1,297</td>
+<td class="num">1.17%</td>
+<td class="num" style="font-weight:700;color:#007AFF">129</td>
+<td class="num">9.9%</td>
+<td class="cpl">R$ 15.95</td>
+</tr><tr class="ur">
+<td class="num">5</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads sao luis paty</strong><br><span class="est">Sao Luis — 22/01 [vendas] [wpp] [cidades] [40+</span></td>
+<td class="money">R$ 357.59</td>
+<td class="num">426</td>
+<td class="num">1.42%</td>
+<td class="num" style="font-weight:700;color:#007AFF">107</td>
+<td class="num">25.1%</td>
+<td class="cpl">R$ 3.34</td>
+</tr><tr class="ur">
+<td class="num">6</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads exames jonas</strong><br><span class="est">Recife — 04/02 [engajamento] [rmk] [recife] </span></td>
+<td class="money">R$ 686.03</td>
+<td class="num">635</td>
+<td class="num">2.60%</td>
+<td class="num" style="font-weight:700;color:#007AFF">107</td>
+<td class="num">16.9%</td>
+<td class="cpl">R$ 6.41</td>
+</tr><tr class="ur">
+<td class="num">7</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads sao luis paty</strong><br><span class="est">Sao Luis — 10/01 [vendas] [wpp] [bairros-cep] </span></td>
+<td class="money">R$ 702.17</td>
+<td class="num">843</td>
+<td class="num">1.94%</td>
+<td class="num" style="font-weight:700;color:#007AFF">84</td>
+<td class="num">10.0%</td>
+<td class="cpl">R$ 8.36</td>
+</tr><tr class="ur">
+<td class="num">8</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads pancreas e insulina</strong><br><span class="est">Vitoria — 06/03 [vendas] [serra-cep] [zara] [</span></td>
+<td class="money">R$ 628.80</td>
+<td class="num">853</td>
+<td class="num">3.55%</td>
+<td class="num" style="font-weight:700;color:#007AFF">80</td>
+<td class="num">9.4%</td>
+<td class="cpl">R$ 7.86</td>
+</tr><tr class="ur">
+<td class="num">9</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads voce tem dm2</strong><br><span class="est">Sao Luis — 08/10 [vendas] [wpp] [km-clinica] [</span></td>
+<td class="money">R$ 554.44</td>
+<td class="num">411</td>
+<td class="num">1.79%</td>
+<td class="num" style="font-weight:700;color:#007AFF">74</td>
+<td class="num">18.0%</td>
+<td class="cpl">R$ 7.49</td>
+</tr><tr class="ur">
+<td class="num">10</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads chamada paty — Cópia</strong><br><span class="est">Brasilia — 31/08 [vendas] [wpp] [km-clinica] [</span></td>
+<td class="money">R$ 330.09</td>
+<td class="num">245</td>
+<td class="num">2.36%</td>
+<td class="num" style="font-weight:700;color:#007AFF">72</td>
+<td class="num">29.4%</td>
+<td class="cpl">R$ 4.58</td>
+</tr>
+  </tbody></table></div>
+</div>
+
+<div class="grid-2">
+  <div class="tbl-c">
+    <h3>Top 20 Mais Eficientes (menor CPL)</h3>
+    <div class="tw"><table><thead><tr>
+      <th>#</th><th></th><th>Anuncio</th><th>Gasto</th>
+      <th>Cliques</th><th>CTR</th><th>Conversas</th><th>Taxa Conv.</th><th>CPL</th>
+    </tr></thead><tbody>
+    <tr class="ur">
+<td class="num">1</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads professor</strong><br><span class="est">Campos dos Goytacazes — 13/02 [vendas] [wpp] [cep-campos] [</span></td>
+<td class="money">R$ 0.24</td>
+<td class="num">1</td>
+<td class="num">4.35%</td>
+<td class="num">1</td>
+<td class="num">100.0%</td>
+<td class="cpl" style="font-weight:700">R$ 0.24</td>
+</tr><tr class="ur">
+<td class="num">2</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads glicada 9</strong><br><span class="est">Campo Grande — 17/03 [vendas] [wpp] [ceps-bairros-</span></td>
+<td class="money">R$ 0.37</td>
+<td class="num">1</td>
+<td class="num">4.00%</td>
+<td class="num">1</td>
+<td class="num">100.0%</td>
+<td class="cpl" style="font-weight:700">R$ 0.37</td>
+</tr><tr class="ur">
+<td class="num">3</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads papo de homem</strong><br><span class="est">Colatina — 04/02[vendas] [wpp] [rmk-180D] [col</span></td>
+<td class="money">R$ 3.14</td>
+<td class="num">4</td>
+<td class="num">2.58%</td>
+<td class="num">5</td>
+<td class="num">125.0%</td>
+<td class="cpl" style="font-weight:700">R$ 0.63</td>
+</tr><tr class="ur">
+<td class="num">4</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads insulina e pancreas</strong><br><span class="est">Imperatriz — 07/03 [engajamento] [wpp] [35+] [no</span></td>
+<td class="money">R$ 0.68</td>
+<td class="num">4</td>
+<td class="num">6.67%</td>
+<td class="num">1</td>
+<td class="num">25.0%</td>
+<td class="cpl" style="font-weight:700">R$ 0.68</td>
+</tr><tr class="ur">
+<td class="num">5</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads usi de insulina</strong><br><span class="est">Santo Amaro — 01/03 - [vendas] [wpp] [35+] [teste</span></td>
+<td class="money">R$ 0.80</td>
+<td class="num">2</td>
+<td class="num">9.09%</td>
+<td class="num">1</td>
+<td class="num">50.0%</td>
+<td class="cpl" style="font-weight:700">R$ 0.80</td>
+</tr><tr class="ur">
+<td class="num">6</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads insulina e pancreas</strong><br><span class="est">Imperatriz — 07/03 [engajamento] [wpp] [35+] [no</span></td>
+<td class="money">R$ 0.87</td>
+<td class="num">5</td>
+<td class="num">7.81%</td>
+<td class="num">1</td>
+<td class="num">20.0%</td>
+<td class="cpl" style="font-weight:700">R$ 0.87</td>
+</tr><tr class="ur">
+<td class="num">7</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads corpo saudavel</strong><br><span class="est">Lapa — 08/01 [vendas] [wpp] [bairros-lapa-</span></td>
+<td class="money">R$ 1.42</td>
+<td class="num">2</td>
+<td class="num">6.06%</td>
+<td class="num">1</td>
+<td class="num">50.0%</td>
+<td class="cpl" style="font-weight:700">R$ 1.42</td>
+</tr><tr class="ur">
+<td class="num">8</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads servidor</strong><br><span class="est">Campo Grande — 12/01 [vendas] [wpp] [teste-criativ</span></td>
+<td class="money">R$ 1.57</td>
+<td class="num">1</td>
+<td class="num">1.72%</td>
+<td class="num">1</td>
+<td class="num">100.0%</td>
+<td class="cpl" style="font-weight:700">R$ 1.57</td>
+</tr><tr class="ur">
+<td class="num">9</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads exames paty</strong><br><span class="est">Maringa — 08/03 [vendas] [wpp] [36+] [novos-c</span></td>
+<td class="money">R$ 4.92</td>
+<td class="num">5</td>
+<td class="num">3.40%</td>
+<td class="num">3</td>
+<td class="num">60.0%</td>
+<td class="cpl" style="font-weight:700">R$ 1.64</td>
+</tr><tr class="ur">
+<td class="num">10</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads viver sem dm2</strong><br><span class="est">Caxias — 10/01 [vendas] [wpp] [35+] [homens]</span></td>
+<td class="money">R$ 1.72</td>
+<td class="num">3</td>
+<td class="num">2.13%</td>
+<td class="num">1</td>
+<td class="num">33.3%</td>
+<td class="cpl" style="font-weight:700">R$ 1.72</td>
+</tr><tr class="ur">
+<td class="num">11</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads controlar por anos</strong><br><span class="est">Campo Grande — 17/03 [vendas] [wpp] [ceps-bairros-</span></td>
+<td class="money">R$ 3.44</td>
+<td class="num">3</td>
+<td class="num">1.70%</td>
+<td class="num">2</td>
+<td class="num">66.7%</td>
+<td class="cpl" style="font-weight:700">R$ 1.72</td>
+</tr><tr class="ur">
+<td class="num">12</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads uso de insulina</strong><br><span class="est">Vila Velha — 08/03 [venda] [wpp] [vila-velha-cep</span></td>
+<td class="money">R$ 1.76</td>
+<td class="num">3</td>
+<td class="num">2.65%</td>
+<td class="num">1</td>
+<td class="num">33.3%</td>
+<td class="cpl" style="font-weight:700">R$ 1.76</td>
+</tr><tr class="ur">
+<td class="num">13</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads reporter é possivel</strong><br><span class="est">Caxias — 10/01 [vendas] [wpp] [35+] [homens]</span></td>
+<td class="money">R$ 1.76</td>
+<td class="num">2</td>
+<td class="num">1.27%</td>
+<td class="num">1</td>
+<td class="num">50.0%</td>
+<td class="cpl" style="font-weight:700">R$ 1.76</td>
+</tr><tr class="ur">
+<td class="num">14</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads glicazida</strong><br><span class="est">Cuiaba — 18/03 [trafego-perfil] [Cuiaba] [35</span></td>
+<td class="money">R$ 3.60</td>
+<td class="num">9</td>
+<td class="num">4.33%</td>
+<td class="num">2</td>
+<td class="num">22.2%</td>
+<td class="cpl" style="font-weight:700">R$ 1.80</td>
+</tr><tr class="ur">
+<td class="num">15</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads usi de insulina</strong><br><span class="est">Santo Amaro — 01/03 - [vendas] [wpp] [35+] [teste</span></td>
+<td class="money">R$ 1.88</td>
+<td class="num">1</td>
+<td class="num">1.49%</td>
+<td class="num">1</td>
+<td class="num">100.0%</td>
+<td class="cpl" style="font-weight:700">R$ 1.88</td>
+</tr><tr class="ur">
+<td class="num">16</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads controlar nao é tratar</strong><br><span class="est">Brasilia — 31/08 [vendas] [wpp] [km-clinica] [</span></td>
+<td class="money">R$ 4.17</td>
+<td class="num">7</td>
+<td class="num">4.93%</td>
+<td class="num">2</td>
+<td class="num">28.6%</td>
+<td class="cpl" style="font-weight:700">R$ 2.08</td>
+</tr><tr class="ur">
+<td class="num">17</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads voce tem dm2</strong><br><span class="est">Cuiaba — 18/03 [vendas] [wpp] [cuiaba-ceps] </span></td>
+<td class="money">R$ 30.53</td>
+<td class="num">32</td>
+<td class="num">4.14%</td>
+<td class="num">14</td>
+<td class="num">43.8%</td>
+<td class="cpl" style="font-weight:700">R$ 2.18</td>
+</tr><tr class="ur">
+<td class="num">18</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads voce tem dm2</strong><br><span class="est">Cuiaba — 18/03 [vendas] [wpp] [cuiaba-ceps] </span></td>
+<td class="money">R$ 15.41</td>
+<td class="num">12</td>
+<td class="num">2.67%</td>
+<td class="num">7</td>
+<td class="num">58.3%</td>
+<td class="cpl" style="font-weight:700">R$ 2.20</td>
+</tr><tr class="ur">
+<td class="num">19</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads buscar a remissao</strong><br><span class="est">Sao Jose do Rio Preto — 21/01 [vendas] [rio-preto] [30+] [C</span></td>
+<td class="money">R$ 2.30</td>
+<td class="num">1</td>
+<td class="num">1.16%</td>
+<td class="num">1</td>
+<td class="num">100.0%</td>
+<td class="cpl" style="font-weight:700">R$ 2.30</td>
+</tr><tr class="ur">
+<td class="num">20</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads essas é a Doutor DM2</strong><br><span class="est">Cuiaba — 18/03 [vendas] [wpp] [cuiaba-ceps] </span></td>
+<td class="money">R$ 30.49</td>
+<td class="num">33</td>
+<td class="num">4.37%</td>
+<td class="num">13</td>
+<td class="num">39.4%</td>
+<td class="cpl" style="font-weight:700">R$ 2.35</td>
+</tr>
+    </tbody></table></div>
+  </div>
+  <div class="tbl-c">
+    <h3>Top 10 Menos Eficientes (maior CPL)</h3>
+    <div class="tw"><table><thead><tr>
+      <th>#</th><th></th><th>Anuncio</th><th>Gasto</th>
+      <th>Cliques</th><th>CTR</th><th>Conversas</th><th>Taxa Conv.</th><th>CPL</th>
+    </tr></thead><tbody>
+    <tr class="ur">
+<td class="num">1</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>Ads cansaço 2</strong><br><span class="est">Sao Luis — 08/10  [trafego-perfil] [sao luis] </span></td>
+<td class="money">R$ 262.51</td>
+<td class="num">445</td>
+<td class="num">2.41%</td>
+<td class="num">1</td>
+<td class="num">0.2%</td>
+<td class="cpl" style="font-weight:700">R$ 262.51</td>
+</tr><tr class="ur">
+<td class="num">2</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ADS ITAOCARA</strong><br><span class="est">Campos dos Goytacazes — 13/02 [reconhecimento] [cidades-cam</span></td>
+<td class="money">R$ 214.22</td>
+<td class="num">323</td>
+<td class="num">0.33%</td>
+<td class="num">1</td>
+<td class="num">0.3%</td>
+<td class="cpl" style="font-weight:700">R$ 214.22</td>
+</tr><tr class="ur">
+<td class="num">3</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads resultados — Cópia</strong><br><span class="est">Sao Jose do Rio Preto — 21/01 [vendas] [rio-preto] [30+] [C</span></td>
+<td class="money">R$ 134.20</td>
+<td class="num">137</td>
+<td class="num">2.63%</td>
+<td class="num">1</td>
+<td class="num">0.7%</td>
+<td class="cpl" style="font-weight:700">R$ 134.20</td>
+</tr><tr class="ur">
+<td class="num">4</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ADS ICONHÁ</strong><br><span class="est">Cachoeiro — 12/02 [reconhecimento] [cidades-viz</span></td>
+<td class="money">R$ 241.48</td>
+<td class="num">320</td>
+<td class="num">0.31%</td>
+<td class="num">2</td>
+<td class="num">0.6%</td>
+<td class="cpl" style="font-weight:700">R$ 120.74</td>
+</tr><tr class="ur">
+<td class="num">5</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>Ad - Visão 2</strong><br><span class="est">Recife — 14/11  [trafego-perfil] [recife] [3</span></td>
+<td class="money">R$ 235.75</td>
+<td class="num">876</td>
+<td class="num">4.76%</td>
+<td class="num">2</td>
+<td class="num">0.2%</td>
+<td class="cpl" style="font-weight:700">R$ 117.88</td>
+</tr><tr class="ur">
+<td class="num">6</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>Ads cansaço 2</strong><br><span class="est">Lapa — 24/10  [Trafego-Perfil] [Lapa] [35+</span></td>
+<td class="money">R$ 172.46</td>
+<td class="num">412</td>
+<td class="num">3.71%</td>
+<td class="num">2</td>
+<td class="num">0.5%</td>
+<td class="cpl" style="font-weight:700">R$ 86.23</td>
+</tr><tr class="ur">
+<td class="num">7</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads metformina</strong><br><span class="est">Campo Grande — 17/10  [trafego-perfil] [campo gran</span></td>
+<td class="money">R$ 254.08</td>
+<td class="num">340</td>
+<td class="num">1.67%</td>
+<td class="num">3</td>
+<td class="num">0.9%</td>
+<td class="cpl" style="font-weight:700">R$ 84.69</td>
+</tr><tr class="ur">
+<td class="num">8</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads jundiai coontrole</strong><br><span class="est">Jundiai — 26/01 [engajamento] [wpp] [rmk] [ca</span></td>
+<td class="money">R$ 165.31</td>
+<td class="num">79</td>
+<td class="num">1.78%</td>
+<td class="num">2</td>
+<td class="num">2.5%</td>
+<td class="cpl" style="font-weight:700">R$ 82.66</td>
+</tr><tr class="ur">
+<td class="num">9</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ADS SÃO JOÃO DA BARRA</strong><br><span class="est">Campos dos Goytacazes — 13/02 [reconhecimento] [cidades-cam</span></td>
+<td class="money">R$ 224.72</td>
+<td class="num">299</td>
+<td class="num">0.29%</td>
+<td class="num">3</td>
+<td class="num">1.0%</td>
+<td class="cpl" style="font-weight:700">R$ 74.91</td>
+</tr><tr class="ur">
+<td class="num">10</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads pre diabetes</strong><br><span class="est">Santo Amaro — 08/03 - [vendas] [wpp] [35+] [zona-</span></td>
+<td class="money">R$ 69.80</td>
+<td class="num">43</td>
+<td class="num">2.61%</td>
+<td class="num">1</td>
+<td class="num">2.3%</td>
+<td class="cpl" style="font-weight:700">R$ 69.80</td>
+</tr>
+    </tbody></table></div>
+  </div>
+</div>
+</div>
+
+</div>
+<script>
+function sw(t){document.querySelectorAll('.tc').forEach(e=>e.classList.remove('on'));document.querySelectorAll('.tab').forEach(e=>e.classList.remove('on'));document.getElementById('t-'+t).classList.add('on');event.target.classList.add('on')}
+const ctx=document.getElementById('ch').getContext('2d');
+new Chart(ctx,{type:'bar',data:{labels:["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"],datasets:[{label:'Leads',data:[145, 244, 351, 285, 251, 212, 286, 176, 348, 333, 336, 336, 289, 349, 200, 375, 415, 361, 126],backgroundColor:'rgba(0,122,255,.15)',borderColor:'#007AFF',borderWidth:1.5,borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#1d1d1f',padding:10,cornerRadius:8,callbacks:{label:c=>c.parsed.y+' leads'}}},scales:{x:{grid:{display:false}},y:{grid:{color:'#f0f0f5'},beginAtZero:true}}}});
+</script>
+</body>
+</html>
