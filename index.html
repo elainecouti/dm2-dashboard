@@ -3,74 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DM2 — Março 2026</title>
+<title>Seven — Doutor DM2 | Março 2026</title>
 <style>
-:root{--bg:#f5f5f7;--c:#fff;--t:#1d1d1f;--t2:#86868b;--t3:#aeaeb2;--b:#007AFF;--g:#34C759;--r:#FF3B30;--o:#FF9500;--br:#e5e5e7;--rd:16px;--sh:0 1px 3px rgba(0,0,0,.04),0 4px 12px rgba(0,0,0,.06);--accent:#6C5CE7}
+:root{--bg:#0a0b0e;--bg2:#12131a;--card:#181a24;--t:#e8eaed;--t2:#8b8fa3;--t3:#4a4e63;--cyan:#00e5c7;--green:#00d68f;--red:#ff4d6a;--orange:#ffaa2c;--blue:#4d8eff;--br:#1e2030;--rd:14px;--sh:0 2px 8px rgba(0,0,0,.3)}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--t);line-height:1.5;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1700px;margin:0 auto;padding:32px 24px}
-.hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--br)}
-.hdr h1{font-size:32px;font-weight:700;letter-spacing:-.5px}
-.hdr .sub{color:var(--t2);font-size:14px;margin-top:2px}
-.hdr .upd{color:var(--t3);font-size:12px;text-align:right}
-.brand{display:flex;align-items:center;gap:16px}
-.logo{width:48px;height:48px;border-radius:12px;background:#0a0a0a;display:flex;align-items:center;justify-content:center}
-.logo svg{width:28px;height:28px}
-.hdr-right{text-align:right}
-.hdr-actions{margin-top:8px;display:flex;gap:8px;justify-content:flex-end;align-items:center}
-.agency{font-size:14px;font-weight:700;color:#00e5c7;background:#0a0a0a;padding:6px 14px;border-radius:8px;letter-spacing:.5px}
-.tabs{display:flex;gap:4px;margin-bottom:28px;background:#e8e8ed;border-radius:10px;padding:3px;width:fit-content}
-.tab{padding:8px 20px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;color:var(--t2);border:none;background:none;transition:.2s}
-.tab.on{background:var(--c);color:var(--t);box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.tab:hover:not(.on){color:var(--t)}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Inter','Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1700px;margin:0 auto;padding:28px 24px}
+
+/* Header */
+.hdr{display:flex;justify-content:space-between;align-items:center;padding:20px 28px;background:var(--bg2);border-radius:16px;margin-bottom:24px;border:1px solid var(--br)}
+.brand{display:flex;align-items:center;gap:14px}
+.logo-mark{display:flex;align-items:center;gap:10px}
+.logo-mark svg{width:26px;height:26px}
+.logo-text{font-size:22px;font-weight:800;color:#fff;letter-spacing:.5px}
+.logo-text span{color:var(--cyan)}
+.hdr h1{font-size:28px;font-weight:700;color:#fff;letter-spacing:-.3px}
+.hdr .sub{color:var(--t2);font-size:13px;margin-top:2px;text-transform:uppercase;letter-spacing:1.5px;font-weight:500}
+.hdr-right{text-align:right;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.upd{color:var(--t3);font-size:11px}
+
+/* Tabs */
+.tabs{display:flex;gap:2px;margin-bottom:24px;background:var(--bg2);border-radius:12px;padding:4px;width:fit-content;border:1px solid var(--br)}
+.tab{padding:10px 22px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;color:var(--t2);border:none;background:none;transition:.2s;letter-spacing:.3px}
+.tab.on{background:var(--cyan);color:#0a0b0e}
+.tab:hover:not(.on){color:var(--t);background:rgba(255,255,255,.05)}
 .tc{display:none}.tc.on{display:block}
-.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:28px}
-.card{background:var(--c);border-radius:var(--rd);padding:18px 22px;box-shadow:var(--sh);transition:transform .15s}
-.card:hover{transform:translateY(-2px)}
-.card .lb{font-size:12px;color:var(--t2);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
-.card .vl{font-size:30px;font-weight:700;margin-top:4px;letter-spacing:-1px}
-.card .sm{font-size:12px;color:var(--t3);margin-top:2px}
-.vl.green{color:var(--g)}.vl.blue{color:var(--b)}.vl.orange{color:var(--o)}
-.chart-c{background:var(--c);border-radius:var(--rd);padding:24px;box-shadow:var(--sh);margin-bottom:28px}
-.chart-c h3{font-size:17px;font-weight:600;margin-bottom:14px}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:24px}
+.card{background:var(--card);border-radius:var(--rd);padding:20px;border:1px solid var(--br);transition:border-color .2s}
+.card:hover{border-color:var(--cyan)}
+.card .lb{font-size:10px;color:var(--t2);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.card .vl{font-size:28px;font-weight:700;margin-top:6px;letter-spacing:-1px;color:#fff}
+.card .sm{font-size:11px;color:var(--t3);margin-top:4px}
+.vl.green{color:var(--green)}.vl.cyan{color:var(--cyan)}.vl.orange{color:var(--orange)}.vl.blue{color:var(--blue)}
+
+/* Chart */
+.chart-c{background:var(--card);border-radius:var(--rd);padding:24px;border:1px solid var(--br);margin-bottom:24px}
+.chart-c h3{font-size:15px;font-weight:600;margin-bottom:14px;color:var(--t)}
 canvas{width:100%!important;height:180px!important}
-.tbl-c{background:var(--c);border-radius:var(--rd);box-shadow:var(--sh);overflow:hidden;margin-bottom:28px}
-.tbl-c h3{font-size:17px;font-weight:600;padding:18px 22px 10px}
+
+/* Tables */
+.tbl-c{background:var(--card);border-radius:var(--rd);border:1px solid var(--br);overflow:hidden;margin-bottom:24px}
+.tbl-c h3{font-size:15px;font-weight:600;padding:18px 22px 10px;color:var(--t)}
+.tbl-c p{color:var(--t3)}
 .tw{overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:12px}
-th{text-align:left;padding:8px 6px;font-weight:600;font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--br);position:sticky;top:0;background:var(--c);white-space:nowrap}
-td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
-.ur:hover{background:#f8f8fa}
+th{text-align:left;padding:8px 6px;font-weight:600;font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid var(--br);position:sticky;top:0;background:var(--card);white-space:nowrap}
+td{padding:7px 6px;border-bottom:1px solid rgba(30,32,48,.8);white-space:nowrap;color:var(--t)}
+.ur:hover{background:rgba(0,229,199,.03)}
 .cs{width:28px;text-align:center}
 .cn{min-width:130px}.cn .est{color:var(--t3);font-size:10px;margin-left:5px}
 .num{text-align:right;min-width:44px;font-variant-numeric:tabular-nums}
 .total{font-size:14px}
 .money{text-align:right;min-width:80px;font-variant-numeric:tabular-nums}
 .cpl{text-align:right;min-width:70px;font-variant-numeric:tabular-nums}
-.msgs{color:var(--b)}
-.dh{text-align:center;min-width:26px;font-size:9px}
-.dc{text-align:center;min-width:26px;font-size:11px;font-weight:500;border-radius:3px;font-variant-numeric:tabular-nums}
-.zero{color:var(--t3)}.dtot{font-weight:700;background:#f0f0f5}
+.msgs{color:var(--cyan)}
+.dh{text-align:center;min-width:26px;font-size:9px;color:var(--t3)}
+.dc{text-align:center;min-width:26px;font-size:11px;font-weight:500;border-radius:4px;font-variant-numeric:tabular-nums}
+.zero{color:var(--t3)}.dtot{font-weight:700;background:rgba(0,229,199,.08)}
 .dot{display:inline-block;width:7px;height:7px;border-radius:50%}
-.dot-green{background:var(--g)}.dot-red{background:var(--r)}.dot-gray{background:var(--t3)}.dot-orange{background:var(--o)}
-.tup{color:var(--r)}.tdn{color:var(--g)}.tst{color:var(--t3)}
+.dot-green{background:var(--green)}.dot-red{background:var(--red)}.dot-gray{background:var(--t3)}.dot-orange{background:var(--orange)}
+.tup{color:var(--red)}.tdn{color:var(--green)}.tst{color:var(--t3)}
 .arr{font-size:9px}
-.tr-total td{font-weight:700;background:#f8f8fa;border-top:2px solid var(--br)}
-.perda-alta{color:var(--r);font-weight:600}
-.badge{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;white-space:nowrap}
-.badge-red{background:#fff0f0;color:var(--r)}.badge-orange{background:#fff8ef;color:var(--o)}.badge-green{background:#f0faf3;color:var(--g)}
+.tr-total td{font-weight:700;background:rgba(0,229,199,.05);border-top:2px solid var(--cyan)}
+.perda-alta{color:var(--red);font-weight:600}
+.badge{font-size:10px;padding:3px 10px;border-radius:10px;font-weight:600;white-space:nowrap}
+.badge-red{background:rgba(255,77,106,.12);color:var(--red)}.badge-orange{background:rgba(255,170,44,.12);color:var(--orange)}.badge-green{background:rgba(0,214,143,.12);color:var(--green)}
 .alert-col{min-width:80px}
-.st-ok{color:var(--g);font-weight:600}.st-warn{color:var(--o);font-weight:600}
-.cc-badge{font-size:11px;background:#f0f0f5;color:var(--t2);padding:3px 10px;border-radius:8px;font-weight:500}
-.dias-critico{color:var(--r);font-weight:700}.dias-alerta{color:var(--o);font-weight:600}
-.pbar{width:90px;height:5px;background:#f0f0f5;border-radius:3px;overflow:hidden;display:inline-block;vertical-align:middle}
+.st-ok{color:var(--green);font-weight:600}.st-warn{color:var(--orange);font-weight:600}
+.cc-badge{font-size:11px;background:rgba(0,229,199,.1);color:var(--cyan);padding:4px 12px;border-radius:8px;font-weight:600}
+.dias-critico{color:var(--red);font-weight:700;background:rgba(255,77,106,.1);padding:2px 8px;border-radius:6px}.dias-alerta{color:var(--orange);font-weight:600}
+.pbar{width:90px;height:5px;background:var(--br);border-radius:3px;overflow:hidden;display:inline-block;vertical-align:middle}
 .pfill{height:100%;border-radius:3px}
 .bar-col{min-width:100px}
-.ad-thumb{width:48px;height:48px;border-radius:8px;object-fit:cover}.ad-thumb-empty{width:48px;height:48px;border-radius:8px;background:#f0f0f5}
+.ad-thumb{width:48px;height:48px;border-radius:8px;object-fit:cover}.ad-thumb-empty{width:48px;height:48px;border-radius:8px;background:var(--br)}
 .ad-cell{width:56px}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.divider{height:1px;background:var(--br);margin:8px 0}
 @media(max-width:1200px){.cards{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:1fr}}
-@media(max-width:768px){.cards{grid-template-columns:repeat(2,1fr)}.hdr{flex-direction:column;align-items:flex-start;gap:8px}.wrap{padding:16px}}
+@media(max-width:768px){.cards{grid-template-columns:repeat(2,1fr)}.hdr{flex-direction:column;align-items:flex-start;gap:12px}.wrap{padding:16px}}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 </head>
@@ -80,18 +92,18 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 <div class="hdr">
   <div>
     <div class="brand">
-      <div class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4.09 12.28a1 1 0 00.77 1.62H11v6.1a1 1 0 001.77.64L21.91 9.72a1 1 0 00-.77-1.62H13V2.1a1 1 0 00-1.77-.64z" fill="#00e5c7"/></svg></div>
-      <div>
-        <h1>Doutor DM2</h1>
-        <div class="sub">Março 2026 — Painel de Performance</div>
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4.09 12.28a1 1 0 00.77 1.62H11v6.1a1 1 0 001.77.64L21.91 9.72a1 1 0 00-.77-1.62H13V2.1a1 1 0 00-1.77-.64z" fill="#00e5c7"/></svg>
+        <span class="logo-text"><span>seven</span></span>
       </div>
+    </div>
+    <div style="margin-top:12px">
+      <h1>Doutor DM2</h1>
+      <div class="sub">Março 2026 &mdash; Painel de Performance</div>
     </div>
   </div>
   <div class="hdr-right">
-    <div class="upd">Atualizado em 19/03/2026 11:12</div>
-    <div class="hdr-actions">
-      <span class="agency">Seven Marketing Digital</span>
-    </div>
+    <div class="upd">Atualizado em 19/03/2026 12:30</div>
   </div>
 </div>
 
@@ -105,11 +117,11 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 <!-- OVERVIEW -->
 <div id="t-ov" class="tc on">
 <div class="cards">
-  <div class="card"><div class="lb">Leads ZapClinic</div><div class="vl blue">5,424</div><div class="sm">19 dias</div></div>
-  <div class="card"><div class="lb">Conversas Meta</div><div class="vl">6,395</div><div class="sm">Perda: 15%</div></div>
-  <div class="card"><div class="lb">Media Diaria</div><div class="vl">285</div><div class="sm">leads / dia</div></div>
-  <div class="card"><div class="lb">Investimento</div><div class="vl">R$ 86,237</div><div class="sm">R$ 4,539 / dia</div></div>
-  <div class="card"><div class="lb">CPL Medio</div><div class="vl green">R$ 15.90</div><div class="sm">custo por lead</div></div>
+  <div class="card"><div class="lb">Leads ZapClinic</div><div class="vl cyan">5,439</div><div class="sm">19 dias</div></div>
+  <div class="card"><div class="lb">Conversas Meta</div><div class="vl blue">6,409</div><div class="sm">Perda: 15%</div></div>
+  <div class="card"><div class="lb">Media Diaria</div><div class="vl">286</div><div class="sm">leads / dia</div></div>
+  <div class="card"><div class="lb">Investimento</div><div class="vl">R$ 86,502</div><div class="sm">R$ 4,553 / dia</div></div>
+  <div class="card"><div class="lb">CPL Medio</div><div class="vl cyan">R$ 15.90</div><div class="sm">custo por lead</div></div>
   <div class="card"><div class="lb">Unidades Ativas</div><div class="vl green">25</div><div class="sm">de 26</div></div>
 </div>
 
@@ -127,22 +139,22 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
   </tr></thead><tbody>
   <tr class="ur">
     <td>1</td><td><strong>Cuiaba</strong></td>
-    <td class="num">73</td>
+    <td class="num">74</td>
     <td class="num msgs">67</td>
     <td class="cpl ">—</td>
-    <td class="money">R$ 220.91</td>
-    <td class="cpl" style="font-weight:700">R$ 3.03</td>
-    <td class="cpl">R$ 3.30</td>
+    <td class="money">R$ 229.82</td>
+    <td class="cpl" style="font-weight:700">R$ 3.11</td>
+    <td class="cpl">R$ 3.43</td>
     <td class="cpl">R$ 2.79</td>
     <td class="cpl">R$ 2.79</td>
     <td class="cpl">R$ 2.79</td>
     <td class="alert-col"></td>
   </tr><tr class="ur">
     <td>2</td><td><strong>Sao Luis</strong></td>
-    <td class="num">506</td>
-    <td class="num msgs">540</td>
+    <td class="num">508</td>
+    <td class="num msgs">542</td>
     <td class="cpl ">6%</td>
-    <td class="money">R$ 3,461.99</td>
+    <td class="money">R$ 3,472.95</td>
     <td class="cpl" style="font-weight:700">R$ 6.84</td>
     <td class="cpl">R$ 6.41</td>
     <td class="cpl">R$ 5.74</td>
@@ -151,24 +163,24 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
     <td class="alert-col"></td>
   </tr><tr class="ur">
     <td>3</td><td><strong>Parauapebas</strong></td>
-    <td class="num">91</td>
-    <td class="num msgs">83</td>
+    <td class="num">92</td>
+    <td class="num msgs">85</td>
     <td class="cpl ">—</td>
-    <td class="money">R$ 795.15</td>
-    <td class="cpl" style="font-weight:700">R$ 8.74</td>
-    <td class="cpl">R$ 9.58</td>
+    <td class="money">R$ 806.44</td>
+    <td class="cpl" style="font-weight:700">R$ 8.77</td>
+    <td class="cpl">R$ 9.49</td>
     <td class="cpl">R$ 8.07</td>
     <td class="cpl">R$ 8.44</td>
     <td class="cpl">R$ 8.52</td>
     <td class="alert-col"></td>
   </tr><tr class="ur">
     <td>4</td><td><strong>Brasilia</strong></td>
-    <td class="num">408</td>
-    <td class="num msgs">454</td>
+    <td class="num">411</td>
+    <td class="num msgs">455</td>
     <td class="cpl ">10%</td>
-    <td class="money">R$ 3,953.93</td>
-    <td class="cpl" style="font-weight:700">R$ 9.69</td>
-    <td class="cpl">R$ 8.71</td>
+    <td class="money">R$ 3,967.10</td>
+    <td class="cpl" style="font-weight:700">R$ 9.65</td>
+    <td class="cpl">R$ 8.72</td>
     <td class="cpl">R$ 10.37</td>
     <td class="cpl">R$ 8.24</td>
     <td class="cpl">R$ 9.34</td>
@@ -176,13 +188,13 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
   </tr><tr class="ur">
     <td>5</td><td><strong>Eunapolis</strong></td>
     <td class="num">323</td>
-    <td class="num msgs">361</td>
-    <td class="cpl ">10%</td>
-    <td class="money">R$ 3,273.69</td>
-    <td class="cpl" style="font-weight:700">R$ 10.14</td>
-    <td class="cpl">R$ 9.07</td>
-    <td class="cpl">R$ 6.79</td>
-    <td class="cpl">R$ 7.95</td>
+    <td class="num msgs">362</td>
+    <td class="cpl ">11%</td>
+    <td class="money">R$ 3,287.32</td>
+    <td class="cpl" style="font-weight:700">R$ 10.18</td>
+    <td class="cpl">R$ 9.08</td>
+    <td class="cpl">R$ 6.80</td>
+    <td class="cpl">R$ 7.96</td>
     <td class="cpl">R$ 8.22</td>
     <td class="alert-col"><span class="badge badge-green">Otimo</span></td>
   </tr><tr class="ur">
@@ -202,9 +214,9 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
     <td class="num">283</td>
     <td class="num msgs">342</td>
     <td class="cpl ">17%</td>
-    <td class="money">R$ 2,947.07</td>
-    <td class="cpl" style="font-weight:700">R$ 10.41</td>
-    <td class="cpl">R$ 8.62</td>
+    <td class="money">R$ 2,954.90</td>
+    <td class="cpl" style="font-weight:700">R$ 10.44</td>
+    <td class="cpl">R$ 8.64</td>
     <td class="cpl">R$ 10.97</td>
     <td class="cpl">R$ 10.54</td>
     <td class="cpl">R$ 11.21</td>
@@ -214,32 +226,32 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
     <td class="num">257</td>
     <td class="num msgs">306</td>
     <td class="cpl ">16%</td>
-    <td class="money">R$ 3,070.92</td>
-    <td class="cpl" style="font-weight:700">R$ 11.95</td>
-    <td class="cpl">R$ 10.04</td>
+    <td class="money">R$ 3,083.61</td>
+    <td class="cpl" style="font-weight:700">R$ 12.00</td>
+    <td class="cpl">R$ 10.08</td>
     <td class="cpl">R$ 14.00</td>
     <td class="cpl">R$ 13.77</td>
     <td class="cpl">R$ 11.70</td>
-    <td class="alert-col"><span class="badge badge-orange">Atencao</span></td>
+    <td class="alert-col"></td>
   </tr><tr class="ur">
     <td>9</td><td><strong>Anapolis</strong></td>
     <td class="num">33</td>
-    <td class="num msgs">42</td>
-    <td class="cpl ">21%</td>
-    <td class="money">R$ 406.33</td>
-    <td class="cpl" style="font-weight:700">R$ 12.31</td>
-    <td class="cpl">R$ 9.67</td>
+    <td class="num msgs">43</td>
+    <td class="cpl ">23%</td>
+    <td class="money">R$ 413.76</td>
+    <td class="cpl" style="font-weight:700">R$ 12.54</td>
+    <td class="cpl">R$ 9.62</td>
     <td class="cpl">R$ 10.90</td>
     <td class="cpl">R$ 10.59</td>
     <td class="cpl">R$ 10.59</td>
-    <td class="alert-col"></td>
+    <td class="alert-col"><span class="badge badge-green">Otimo</span></td>
   </tr><tr class="ur">
     <td>10</td><td><strong>Montes Claros</strong></td>
     <td class="num">181</td>
-    <td class="num msgs">269</td>
+    <td class="num msgs">270</td>
     <td class="cpl perda-alta">33%</td>
-    <td class="money">R$ 2,677.75</td>
-    <td class="cpl" style="font-weight:700">R$ 14.79</td>
+    <td class="money">R$ 2,685.34</td>
+    <td class="cpl" style="font-weight:700">R$ 14.84</td>
     <td class="cpl">R$ 9.95</td>
     <td class="cpl">R$ 16.79</td>
     <td class="cpl">R$ 15.46</td>
@@ -247,12 +259,12 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
     <td class="alert-col"></td>
   </tr><tr class="ur">
     <td>11</td><td><strong>Maringa</strong></td>
-    <td class="num">201</td>
-    <td class="num msgs">262</td>
-    <td class="cpl ">23%</td>
-    <td class="money">R$ 3,143.58</td>
-    <td class="cpl" style="font-weight:700">R$ 15.64</td>
-    <td class="cpl">R$ 12.00</td>
+    <td class="num">202</td>
+    <td class="num msgs">264</td>
+    <td class="cpl ">24%</td>
+    <td class="money">R$ 3,161.63</td>
+    <td class="cpl" style="font-weight:700">R$ 15.65</td>
+    <td class="cpl">R$ 11.98</td>
     <td class="cpl">—</td>
     <td class="cpl">R$ 14.06</td>
     <td class="cpl">R$ 14.37</td>
@@ -262,58 +274,58 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
     <td class="num">207</td>
     <td class="num msgs">214</td>
     <td class="cpl ">3%</td>
-    <td class="money">R$ 3,437.19</td>
-    <td class="cpl" style="font-weight:700">R$ 16.60</td>
-    <td class="cpl">R$ 16.06</td>
-    <td class="cpl">R$ 10.92</td>
+    <td class="money">R$ 3,445.01</td>
+    <td class="cpl" style="font-weight:700">R$ 16.64</td>
+    <td class="cpl">R$ 16.10</td>
+    <td class="cpl">R$ 10.93</td>
     <td class="cpl">R$ 11.31</td>
     <td class="cpl">R$ 12.98</td>
     <td class="alert-col"><span class="badge badge-green">Otimo</span></td>
   </tr><tr class="ur">
     <td>13</td><td><strong>Caxias</strong></td>
-    <td class="num">184</td>
+    <td class="num">185</td>
     <td class="num msgs">212</td>
     <td class="cpl ">13%</td>
-    <td class="money">R$ 3,305.04</td>
-    <td class="cpl" style="font-weight:700">R$ 17.96</td>
-    <td class="cpl">R$ 15.59</td>
+    <td class="money">R$ 3,316.62</td>
+    <td class="cpl" style="font-weight:700">R$ 17.93</td>
+    <td class="cpl">R$ 15.64</td>
     <td class="cpl">R$ 9.58</td>
     <td class="cpl">R$ 16.92</td>
     <td class="cpl">R$ 18.50</td>
     <td class="alert-col"></td>
   </tr><tr class="ur">
     <td>14</td><td><strong>Marilia</strong></td>
-    <td class="num">161</td>
-    <td class="num msgs">196</td>
-    <td class="cpl ">18%</td>
-    <td class="money">R$ 2,995.08</td>
-    <td class="cpl" style="font-weight:700">R$ 18.60</td>
-    <td class="cpl">R$ 15.28</td>
+    <td class="num">163</td>
+    <td class="num msgs">197</td>
+    <td class="cpl ">17%</td>
+    <td class="money">R$ 3,004.26</td>
+    <td class="cpl" style="font-weight:700">R$ 18.43</td>
+    <td class="cpl">R$ 15.25</td>
     <td class="cpl">R$ 19.27</td>
     <td class="cpl">R$ 15.53</td>
     <td class="cpl">R$ 16.95</td>
     <td class="alert-col"><span class="badge badge-green">Otimo</span></td>
   </tr><tr class="ur">
     <td>15</td><td><strong>Osasco</strong></td>
-    <td class="num">210</td>
-    <td class="num msgs">237</td>
+    <td class="num">212</td>
+    <td class="num msgs">238</td>
     <td class="cpl ">11%</td>
-    <td class="money">R$ 3,994.06</td>
-    <td class="cpl" style="font-weight:700">R$ 19.02</td>
-    <td class="cpl">R$ 16.85</td>
+    <td class="money">R$ 4,008.19</td>
+    <td class="cpl" style="font-weight:700">R$ 18.91</td>
+    <td class="cpl">R$ 16.84</td>
     <td class="cpl">R$ 13.04</td>
     <td class="cpl">R$ 25.11</td>
-    <td class="cpl">R$ 20.08</td>
+    <td class="cpl">R$ 20.09</td>
     <td class="alert-col"><span class="badge badge-red">CPL Alto</span></td>
   </tr><tr class="ur">
     <td>16</td><td><strong>Cachoeiro</strong></td>
     <td class="num">196</td>
     <td class="num msgs">202</td>
     <td class="cpl ">3%</td>
-    <td class="money">R$ 3,734.24</td>
-    <td class="cpl" style="font-weight:700">R$ 19.05</td>
-    <td class="cpl">R$ 18.49</td>
-    <td class="cpl">R$ 50.15</td>
+    <td class="money">R$ 3,746.38</td>
+    <td class="cpl" style="font-weight:700">R$ 19.11</td>
+    <td class="cpl">R$ 18.55</td>
+    <td class="cpl">R$ 50.17</td>
     <td class="cpl">R$ 21.49</td>
     <td class="cpl">R$ 18.78</td>
     <td class="alert-col"></td>
@@ -322,21 +334,21 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
     <td class="num">242</td>
     <td class="num msgs">269</td>
     <td class="cpl ">10%</td>
-    <td class="money">R$ 4,615.72</td>
-    <td class="cpl" style="font-weight:700">R$ 19.07</td>
-    <td class="cpl">R$ 17.16</td>
+    <td class="money">R$ 4,633.13</td>
+    <td class="cpl" style="font-weight:700">R$ 19.15</td>
+    <td class="cpl">R$ 17.22</td>
     <td class="cpl">R$ 43.28</td>
     <td class="cpl">R$ 18.80</td>
     <td class="cpl">R$ 18.49</td>
     <td class="alert-col"></td>
   </tr><tr class="ur">
     <td>18</td><td><strong>Lapa</strong></td>
-    <td class="num">170</td>
+    <td class="num">171</td>
     <td class="num msgs">234</td>
     <td class="cpl ">27%</td>
-    <td class="money">R$ 3,621.66</td>
-    <td class="cpl" style="font-weight:700">R$ 21.30</td>
-    <td class="cpl">R$ 15.48</td>
+    <td class="money">R$ 3,634.95</td>
+    <td class="cpl" style="font-weight:700">R$ 21.26</td>
+    <td class="cpl">R$ 15.53</td>
     <td class="cpl">R$ 12.31</td>
     <td class="cpl">R$ 17.54</td>
     <td class="cpl">R$ 20.18</td>
@@ -346,9 +358,9 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
     <td class="num">309</td>
     <td class="num msgs">443</td>
     <td class="cpl perda-alta">30%</td>
-    <td class="money">R$ 6,715.22</td>
-    <td class="cpl" style="font-weight:700">R$ 21.73</td>
-    <td class="cpl">R$ 15.16</td>
+    <td class="money">R$ 6,731.41</td>
+    <td class="cpl" style="font-weight:700">R$ 21.78</td>
+    <td class="cpl">R$ 15.20</td>
     <td class="cpl">R$ 14.40</td>
     <td class="cpl">R$ 21.28</td>
     <td class="cpl">R$ 17.52</td>
@@ -368,11 +380,11 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
   </tr><tr class="ur">
     <td>21</td><td><strong>Linhares</strong></td>
     <td class="num">179</td>
-    <td class="num msgs">210</td>
+    <td class="num msgs">211</td>
     <td class="cpl ">15%</td>
-    <td class="money">R$ 3,963.63</td>
-    <td class="cpl" style="font-weight:700">R$ 22.14</td>
-    <td class="cpl">R$ 18.87</td>
+    <td class="money">R$ 3,975.28</td>
+    <td class="cpl" style="font-weight:700">R$ 22.21</td>
+    <td class="cpl">R$ 18.84</td>
     <td class="cpl">R$ 17.76</td>
     <td class="cpl">R$ 20.64</td>
     <td class="cpl">R$ 22.86</td>
@@ -394,33 +406,33 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
     <td class="num">167</td>
     <td class="num msgs">228</td>
     <td class="cpl ">27%</td>
-    <td class="money">R$ 4,255.01</td>
-    <td class="cpl" style="font-weight:700">R$ 25.48</td>
-    <td class="cpl">R$ 18.66</td>
+    <td class="money">R$ 4,266.87</td>
+    <td class="cpl" style="font-weight:700">R$ 25.55</td>
+    <td class="cpl">R$ 18.71</td>
     <td class="cpl">—</td>
     <td class="cpl">R$ 25.32</td>
-    <td class="cpl">R$ 22.41</td>
+    <td class="cpl">R$ 22.42</td>
     <td class="alert-col"></td>
   </tr><tr class="ur">
     <td>24</td><td><strong>Jundiai</strong></td>
     <td class="num">229</td>
     <td class="num msgs">238</td>
     <td class="cpl ">4%</td>
-    <td class="money">R$ 5,833.86</td>
-    <td class="cpl" style="font-weight:700">R$ 25.48</td>
-    <td class="cpl">R$ 24.51</td>
-    <td class="cpl">R$ 146.18</td>
-    <td class="cpl">R$ 35.38</td>
+    <td class="money">R$ 5,851.84</td>
+    <td class="cpl" style="font-weight:700">R$ 25.55</td>
+    <td class="cpl">R$ 24.59</td>
+    <td class="cpl">R$ 146.27</td>
+    <td class="cpl">R$ 35.39</td>
     <td class="cpl">R$ 28.93</td>
     <td class="alert-col"><span class="badge badge-red">CPL Alto</span></td>
   </tr><tr class="ur">
     <td>25</td><td><strong>Vila Velha</strong></td>
-    <td class="num">171</td>
-    <td class="num msgs">252</td>
+    <td class="num">172</td>
+    <td class="num msgs">253</td>
     <td class="cpl perda-alta">32%</td>
-    <td class="money">R$ 4,837.70</td>
-    <td class="cpl" style="font-weight:700">R$ 28.29</td>
-    <td class="cpl">R$ 19.20</td>
+    <td class="money">R$ 4,848.58</td>
+    <td class="cpl" style="font-weight:700">R$ 28.19</td>
+    <td class="cpl">R$ 19.16</td>
     <td class="cpl">R$ 39.82</td>
     <td class="cpl">R$ 35.93</td>
     <td class="cpl">R$ 29.59</td>
@@ -447,14 +459,14 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
   <tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Vitoria</strong><span class="est">ES</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.51);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">12</td><td class="dc" style="background:rgba(0,122,255,0.39);color:#1d1d1f">11</td><td class="dc" style="background:rgba(0,122,255,0.51);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">10</td><td class="dc" style="background:rgba(0,122,255,0.66);color:#fff">22</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.63);color:#fff">21</td><td class="dc" style="background:rgba(0,122,255,0.83);color:#fff">29</td><td class="dc" style="background:rgba(0,122,255,0.24);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">36</td><td class="dc" style="background:rgba(0,122,255,0.39);color:#1d1d1f">11</td><td class="dc" style="background:rgba(0,122,255,0.76);color:#fff">26</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">10</td><td class="dc" style="background:rgba(0,122,255,0.71);color:#fff">24</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">9</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc" style="background:rgba(0,229,199,0.32);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.51);color:#e8eaed">16</td><td class="dc" style="background:rgba(0,229,199,0.54);color:#e8eaed">17</td><td class="dc" style="background:rgba(0,229,199,0.34);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">12</td><td class="dc" style="background:rgba(0,229,199,0.39);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.51);color:#e8eaed">16</td><td class="dc" style="background:rgba(0,229,199,0.36);color:#e8eaed">10</td><td class="dc" style="background:rgba(0,229,199,0.66);color:#0a0b0e">22</td><td class="dc" style="background:rgba(0,229,199,0.54);color:#e8eaed">17</td><td class="dc" style="background:rgba(0,229,199,0.63);color:#0a0b0e">21</td><td class="dc" style="background:rgba(0,229,199,0.83);color:#0a0b0e">29</td><td class="dc" style="background:rgba(0,229,199,0.24);color:#e8eaed">5</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">36</td><td class="dc" style="background:rgba(0,229,199,0.39);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.76);color:#0a0b0e">26</td><td class="dc" style="background:rgba(0,229,199,0.36);color:#e8eaed">10</td><td class="dc" style="background:rgba(0,229,199,0.71);color:#0a0b0e">24</td><td class="dc" style="background:rgba(0,229,199,0.34);color:#e8eaed">9</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>309</strong></td>
 <td class="num">16.3</td>
 <td class="num msgs">443</td>
-<td class="money">R$ 6,715.22</td>
-<td class="money">R$ 353.43</td>
-<td class="cpl">R$ 21.73</td>
-<td class="cpl">R$ 15.16</td>
+<td class="money">R$ 6,731.41</td>
+<td class="money">R$ 354.28</td>
+<td class="cpl">R$ 21.78</td>
+<td class="cpl">R$ 15.20</td>
 <td class="cpl perda-alta">30%</td>
 <td class="cpl">R$ 14.40</td>
 <td class="cpl">R$ 21.28</td>
@@ -463,14 +475,14 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Vila Velha</strong><span class="est">ES</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.40);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.44);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.44);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">22</td><td class="dc" style="background:rgba(0,122,255,0.52);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.60);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.40);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.24);color:#1d1d1f">3</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
-<td class="num total"><strong>171</strong></td>
-<td class="num">9.0</td>
-<td class="num msgs">252</td>
-<td class="money">R$ 4,837.70</td>
-<td class="money">R$ 254.62</td>
-<td class="cpl">R$ 28.29</td>
-<td class="cpl">R$ 19.20</td>
+<td class="dc" style="background:rgba(0,229,199,0.64);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.40);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.56);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.28);color:#e8eaed">4</td><td class="dc" style="background:rgba(0,229,199,0.36);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.44);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.36);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.44);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">22</td><td class="dc" style="background:rgba(0,229,199,0.52);color:#e8eaed">10</td><td class="dc" style="background:rgba(0,229,199,0.56);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.56);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.60);color:#e8eaed">12</td><td class="dc" style="background:rgba(0,229,199,0.48);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.36);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.40);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.56);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.36);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.28);color:#e8eaed">4</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>172</strong></td>
+<td class="num">9.1</td>
+<td class="num msgs">253</td>
+<td class="money">R$ 4,848.58</td>
+<td class="money">R$ 255.19</td>
+<td class="cpl">R$ 28.19</td>
+<td class="cpl">R$ 19.16</td>
 <td class="cpl perda-alta">32%</td>
 <td class="cpl">R$ 39.82</td>
 <td class="cpl">R$ 35.93</td>
@@ -479,23 +491,23 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-orange" title="Dados da planilha manual"></span></td>
 <td class="cn"><strong>Cachoeiro</strong><span class="est">ES</span></td>
-<td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.24);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.44);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.88);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.52);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.76);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">22</td><td class="dc" style="background:rgba(0,122,255,0.92);color:#fff">20</td><td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.92);color:#fff">20</td><td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">4</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc zero">0</td><td class="dc" style="background:rgba(0,229,199,0.24);color:#e8eaed">3</td><td class="dc" style="background:rgba(0,229,199,0.72);color:#0a0b0e">15</td><td class="dc" style="background:rgba(0,229,199,0.56);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.44);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.32);color:#e8eaed">5</td><td class="dc" style="background:rgba(0,229,199,0.88);color:#0a0b0e">19</td><td class="dc" style="background:rgba(0,229,199,0.48);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.52);color:#e8eaed">10</td><td class="dc" style="background:rgba(0,229,199,0.76);color:#0a0b0e">16</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">22</td><td class="dc" style="background:rgba(0,229,199,0.92);color:#0a0b0e">20</td><td class="dc" style="background:rgba(0,229,199,0.64);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.36);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.36);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.48);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.92);color:#0a0b0e">20</td><td class="dc" style="background:rgba(0,229,199,0.28);color:#e8eaed">4</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>196</strong></td>
 <td class="num">10.9</td>
 <td class="num msgs">202</td>
-<td class="money">R$ 3,734.24</td>
-<td class="money">R$ 196.54</td>
-<td class="cpl">R$ 19.05</td>
-<td class="cpl">R$ 18.49</td>
+<td class="money">R$ 3,746.38</td>
+<td class="money">R$ 197.18</td>
+<td class="cpl">R$ 19.11</td>
+<td class="cpl">R$ 18.55</td>
 <td class="cpl ">3%</td>
-<td class="cpl">R$ 50.15</td>
+<td class="cpl">R$ 50.17</td>
 <td class="cpl">R$ 21.49</td>
 <td class="cpl tst">R$ 18.78 <small class="arr">—</small></td>
 <td class="alert-col"></td>
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-orange" title="Dados da planilha manual"></span></td>
 <td class="cn"><strong>Campos dos Goytacazes</strong><span class="est">RJ</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">5</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.51);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.35);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.19);color:#1d1d1f">2</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">27</td><td class="dc" style="background:rgba(0,122,255,0.77);color:#fff">20</td><td class="dc" style="background:rgba(0,122,255,0.61);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">11</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">11</td><td class="dc" style="background:rgba(0,122,255,0.93);color:#fff">25</td><td class="dc" style="background:rgba(0,122,255,0.22);color:#1d1d1f">3</td><td class="dc zero">0</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc" style="background:rgba(0,229,199,0.28);color:#e8eaed">5</td><td class="dc" style="background:rgba(0,229,199,0.28);color:#e8eaed">5</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,229,199,0.38);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.51);color:#e8eaed">12</td><td class="dc" style="background:rgba(0,229,199,0.35);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.32);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.28);color:#e8eaed">5</td><td class="dc" style="background:rgba(0,229,199,0.19);color:#e8eaed">2</td><td class="dc" style="background:rgba(0,229,199,0.54);color:#e8eaed">13</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">27</td><td class="dc" style="background:rgba(0,229,199,0.77);color:#0a0b0e">20</td><td class="dc" style="background:rgba(0,229,199,0.61);color:#0a0b0e">15</td><td class="dc" style="background:rgba(0,229,199,0.48);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.48);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.93);color:#0a0b0e">25</td><td class="dc" style="background:rgba(0,229,199,0.22);color:#e8eaed">3</td><td class="dc zero">0</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>175</strong></td>
 <td class="num">9.7</td>
 <td class="num msgs">226</td>
@@ -511,14 +523,14 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Linhares</strong><span class="est">ES</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.45);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.45);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">8</td><td class="dc" style="background:rgba(0,122,255,0.78);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.83);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.61);color:#fff">9</td><td class="dc" style="background:rgba(0,122,255,0.45);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.89);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.51);color:#fff">7</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc" style="background:rgba(0,229,199,0.45);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.45);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.56);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.78);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">16</td><td class="dc" style="background:rgba(0,229,199,0.67);color:#0a0b0e">10</td><td class="dc" style="background:rgba(0,229,199,0.83);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.67);color:#0a0b0e">10</td><td class="dc" style="background:rgba(0,229,199,0.72);color:#0a0b0e">11</td><td class="dc" style="background:rgba(0,229,199,0.61);color:#0a0b0e">9</td><td class="dc" style="background:rgba(0,229,199,0.45);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.34);color:#e8eaed">4</td><td class="dc" style="background:rgba(0,229,199,0.34);color:#e8eaed">4</td><td class="dc" style="background:rgba(0,229,199,0.89);color:#0a0b0e">14</td><td class="dc" style="background:rgba(0,229,199,0.72);color:#0a0b0e">11</td><td class="dc" style="background:rgba(0,229,199,0.67);color:#0a0b0e">10</td><td class="dc" style="background:rgba(0,229,199,0.72);color:#0a0b0e">11</td><td class="dc" style="background:rgba(0,229,199,0.72);color:#0a0b0e">11</td><td class="dc" style="background:rgba(0,229,199,0.51);color:#e8eaed">7</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>179</strong></td>
 <td class="num">9.4</td>
-<td class="num msgs">210</td>
-<td class="money">R$ 3,963.63</td>
-<td class="money">R$ 208.61</td>
-<td class="cpl">R$ 22.14</td>
-<td class="cpl">R$ 18.87</td>
+<td class="num msgs">211</td>
+<td class="money">R$ 3,975.28</td>
+<td class="money">R$ 209.23</td>
+<td class="cpl">R$ 22.21</td>
+<td class="cpl">R$ 18.84</td>
 <td class="cpl ">15%</td>
 <td class="cpl">R$ 17.76</td>
 <td class="cpl">R$ 20.64</td>
@@ -527,46 +539,46 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Santo Amaro</strong><span class="est">SP</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.47);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.87);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.65);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.69);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.82);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.47);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.60);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">20</td><td class="dc" style="background:rgba(0,122,255,0.74);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.87);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.87);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.65);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">4</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc" style="background:rgba(0,229,199,0.30);color:#e8eaed">4</td><td class="dc" style="background:rgba(0,229,199,0.47);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.87);color:#0a0b0e">17</td><td class="dc" style="background:rgba(0,229,199,0.65);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,0.69);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.38);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.82);color:#0a0b0e">16</td><td class="dc" style="background:rgba(0,229,199,0.47);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.60);color:#0a0b0e">11</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">20</td><td class="dc" style="background:rgba(0,229,199,0.74);color:#0a0b0e">14</td><td class="dc" style="background:rgba(0,229,199,0.43);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.43);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.56);color:#e8eaed">10</td><td class="dc" style="background:rgba(0,229,199,0.30);color:#e8eaed">4</td><td class="dc" style="background:rgba(0,229,199,0.87);color:#0a0b0e">17</td><td class="dc" style="background:rgba(0,229,199,0.87);color:#0a0b0e">17</td><td class="dc" style="background:rgba(0,229,199,0.65);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,0.30);color:#e8eaed">4</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>207</strong></td>
 <td class="num">10.9</td>
 <td class="num msgs">214</td>
-<td class="money">R$ 3,437.19</td>
-<td class="money">R$ 180.90</td>
-<td class="cpl">R$ 16.60</td>
-<td class="cpl">R$ 16.06</td>
+<td class="money">R$ 3,445.01</td>
+<td class="money">R$ 181.32</td>
+<td class="cpl">R$ 16.64</td>
+<td class="cpl">R$ 16.10</td>
 <td class="cpl ">3%</td>
-<td class="cpl">R$ 10.92</td>
+<td class="cpl">R$ 10.93</td>
 <td class="cpl">R$ 11.31</td>
 <td class="cpl tdn">R$ 12.98 <small class="arr">&#9660;</small></td>
 <td class="alert-col"><span class="badge badge-green">Otimo</span></td>
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-orange" title="Dados da planilha manual"></span></td>
 <td class="cn"><strong>Sao Jose do Rio Preto</strong><span class="est">SP</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.25);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.25);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.29);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.66);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">21</td><td class="dc zero">0</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc" style="background:rgba(0,229,199,0.25);color:#e8eaed">3</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,0.50);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.25);color:#e8eaed">3</td><td class="dc" style="background:rgba(0,229,199,0.58);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.58);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.29);color:#e8eaed">4</td><td class="dc" style="background:rgba(0,229,199,0.58);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.37);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.58);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.54);color:#e8eaed">10</td><td class="dc" style="background:rgba(0,229,199,0.58);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.66);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">21</td><td class="dc zero">0</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>167</strong></td>
 <td class="num">9.3</td>
 <td class="num msgs">228</td>
-<td class="money">R$ 4,255.01</td>
-<td class="money">R$ 223.95</td>
-<td class="cpl">R$ 25.48</td>
-<td class="cpl">R$ 18.66</td>
+<td class="money">R$ 4,266.87</td>
+<td class="money">R$ 224.57</td>
+<td class="cpl">R$ 25.55</td>
+<td class="cpl">R$ 18.71</td>
 <td class="cpl ">27%</td>
 <td class="cpl">—</td>
 <td class="cpl">R$ 25.32</td>
-<td class="cpl tdn">R$ 22.41 <small class="arr">&#9660;</small></td>
+<td class="cpl tdn">R$ 22.42 <small class="arr">&#9660;</small></td>
 <td class="alert-col"></td>
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-orange" title="Dados da planilha manual"></span></td>
 <td class="cn"><strong>Governador Valadares</strong><span class="est">MG</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.49);color:#1d1d1f">10</td><td class="dc" style="background:rgba(0,122,255,0.52);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.78);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.89);color:#fff">21</td><td class="dc" style="background:rgba(0,122,255,0.96);color:#fff">23</td><td class="dc" style="background:rgba(0,122,255,0.52);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.60);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.82);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.63);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">24</td><td class="dc" style="background:rgba(0,122,255,0.93);color:#fff">22</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">6</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc" style="background:rgba(0,229,199,0.49);color:#e8eaed">10</td><td class="dc" style="background:rgba(0,229,199,0.52);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.67);color:#0a0b0e">15</td><td class="dc" style="background:rgba(0,229,199,0.34);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.38);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.78);color:#0a0b0e">18</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.89);color:#0a0b0e">21</td><td class="dc" style="background:rgba(0,229,199,0.96);color:#0a0b0e">23</td><td class="dc" style="background:rgba(0,229,199,0.52);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.34);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.60);color:#e8eaed">13</td><td class="dc" style="background:rgba(0,229,199,0.82);color:#0a0b0e">19</td><td class="dc" style="background:rgba(0,229,199,0.63);color:#0a0b0e">14</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">24</td><td class="dc" style="background:rgba(0,229,199,0.93);color:#0a0b0e">22</td><td class="dc" style="background:rgba(0,229,199,0.34);color:#e8eaed">6</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>242</strong></td>
 <td class="num">13.4</td>
 <td class="num msgs">269</td>
-<td class="money">R$ 4,615.72</td>
-<td class="money">R$ 242.93</td>
-<td class="cpl">R$ 19.07</td>
-<td class="cpl">R$ 17.16</td>
+<td class="money">R$ 4,633.13</td>
+<td class="money">R$ 243.85</td>
+<td class="cpl">R$ 19.15</td>
+<td class="cpl">R$ 17.22</td>
 <td class="cpl ">10%</td>
 <td class="cpl">R$ 43.28</td>
 <td class="cpl">R$ 18.80</td>
@@ -575,47 +587,47 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Eunapolis</strong><span class="est">BA</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.31);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.55);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">11</td><td class="dc" style="background:rgba(0,122,255,0.15);color:#1d1d1f">1</td><td class="dc" style="background:rgba(0,122,255,0.47);color:#1d1d1f">13</td><td class="dc" style="background:rgba(0,122,255,0.63);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.52);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.63);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.87);color:#fff">28</td><td class="dc" style="background:rgba(0,122,255,0.79);color:#fff">25</td><td class="dc" style="background:rgba(0,122,255,0.63);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.57);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.87);color:#fff">28</td><td class="dc" style="background:rgba(0,122,255,0.39);color:#1d1d1f">10</td><td class="dc" style="background:rgba(0,122,255,0.55);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">33</td><td class="dc" style="background:rgba(0,122,255,0.97);color:#fff">32</td><td class="dc" style="background:rgba(0,122,255,0.25);color:#1d1d1f">5</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc" style="background:rgba(0,229,199,0.36);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.31);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.55);color:#e8eaed">16</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.15);color:#e8eaed">1</td><td class="dc" style="background:rgba(0,229,199,0.47);color:#e8eaed">13</td><td class="dc" style="background:rgba(0,229,199,0.63);color:#0a0b0e">19</td><td class="dc" style="background:rgba(0,229,199,0.52);color:#e8eaed">15</td><td class="dc" style="background:rgba(0,229,199,0.63);color:#0a0b0e">19</td><td class="dc" style="background:rgba(0,229,199,0.87);color:#0a0b0e">28</td><td class="dc" style="background:rgba(0,229,199,0.79);color:#0a0b0e">25</td><td class="dc" style="background:rgba(0,229,199,0.63);color:#0a0b0e">19</td><td class="dc" style="background:rgba(0,229,199,0.57);color:#e8eaed">17</td><td class="dc" style="background:rgba(0,229,199,0.87);color:#0a0b0e">28</td><td class="dc" style="background:rgba(0,229,199,0.39);color:#e8eaed">10</td><td class="dc" style="background:rgba(0,229,199,0.55);color:#e8eaed">16</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">33</td><td class="dc" style="background:rgba(0,229,199,0.97);color:#0a0b0e">32</td><td class="dc" style="background:rgba(0,229,199,0.25);color:#e8eaed">5</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>323</strong></td>
 <td class="num">17.0</td>
-<td class="num msgs">361</td>
-<td class="money">R$ 3,273.69</td>
-<td class="money">R$ 172.30</td>
-<td class="cpl">R$ 10.14</td>
-<td class="cpl">R$ 9.07</td>
-<td class="cpl ">10%</td>
-<td class="cpl">R$ 6.79</td>
-<td class="cpl">R$ 7.95</td>
+<td class="num msgs">362</td>
+<td class="money">R$ 3,287.32</td>
+<td class="money">R$ 173.02</td>
+<td class="cpl">R$ 10.18</td>
+<td class="cpl">R$ 9.08</td>
+<td class="cpl ">11%</td>
+<td class="cpl">R$ 6.80</td>
+<td class="cpl">R$ 7.96</td>
 <td class="cpl tdn">R$ 8.22 <small class="arr">&#9660;</small></td>
 <td class="alert-col"><span class="badge badge-green">Otimo</span></td>
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-orange" title="Dados da planilha manual"></span></td>
 <td class="cn"><strong>Jundiai</strong><span class="est">SP</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.39);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">23</td><td class="dc" style="background:rgba(0,122,255,0.89);color:#fff">20</td><td class="dc" style="background:rgba(0,122,255,0.66);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.39);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.77);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.85);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.69);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.20);color:#1d1d1f">2</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc" style="background:rgba(0,229,199,0.39);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.54);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">23</td><td class="dc" style="background:rgba(0,229,199,0.89);color:#0a0b0e">20</td><td class="dc" style="background:rgba(0,229,199,0.66);color:#0a0b0e">14</td><td class="dc" style="background:rgba(0,229,199,0.39);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.77);color:#0a0b0e">17</td><td class="dc" style="background:rgba(0,229,199,0.54);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.85);color:#0a0b0e">19</td><td class="dc" style="background:rgba(0,229,199,0.50);color:#e8eaed">10</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.43);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.69);color:#0a0b0e">15</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.20);color:#e8eaed">2</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>229</strong></td>
 <td class="num">12.7</td>
 <td class="num msgs">238</td>
-<td class="money">R$ 5,833.86</td>
-<td class="money">R$ 307.05</td>
-<td class="cpl">R$ 25.48</td>
-<td class="cpl">R$ 24.51</td>
+<td class="money">R$ 5,851.84</td>
+<td class="money">R$ 307.99</td>
+<td class="cpl">R$ 25.55</td>
+<td class="cpl">R$ 24.59</td>
 <td class="cpl ">4%</td>
-<td class="cpl">R$ 146.18</td>
-<td class="cpl">R$ 35.38</td>
+<td class="cpl">R$ 146.27</td>
+<td class="cpl">R$ 35.39</td>
 <td class="cpl tup">R$ 28.93 <small class="arr">&#9650;</small></td>
 <td class="alert-col"><span class="badge badge-red">CPL Alto</span></td>
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Marilia</strong><span class="est">SP</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.74);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.79);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.79);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,0.33);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.74);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.79);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.33);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.53);color:#fff">8</td><td class="dc" style="background:rgba(0,122,255,0.74);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.53);color:#fff">8</td><td class="dc" style="background:rgba(0,122,255,0.33);color:#1d1d1f">4</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
-<td class="num total"><strong>161</strong></td>
-<td class="num">8.5</td>
-<td class="num msgs">196</td>
-<td class="money">R$ 2,995.08</td>
-<td class="money">R$ 157.64</td>
-<td class="cpl">R$ 18.60</td>
-<td class="cpl">R$ 15.28</td>
-<td class="cpl ">18%</td>
+<td class="dc" style="background:rgba(0,229,199,0.38);color:#e8eaed">5</td><td class="dc" style="background:rgba(0,229,199,0.74);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,0.79);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.48);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.79);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.48);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.28);color:#e8eaed">3</td><td class="dc" style="background:rgba(0,229,199,0.33);color:#e8eaed">4</td><td class="dc" style="background:rgba(0,229,199,0.74);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,0.43);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.43);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.79);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.33);color:#e8eaed">4</td><td class="dc" style="background:rgba(0,229,199,0.48);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.53);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.74);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">17</td><td class="dc" style="background:rgba(0,229,199,0.53);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.43);color:#e8eaed">6</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>163</strong></td>
+<td class="num">8.6</td>
+<td class="num msgs">197</td>
+<td class="money">R$ 3,004.26</td>
+<td class="money">R$ 158.12</td>
+<td class="cpl">R$ 18.43</td>
+<td class="cpl">R$ 15.25</td>
+<td class="cpl ">17%</td>
 <td class="cpl">R$ 19.27</td>
 <td class="cpl">R$ 15.53</td>
 <td class="cpl tst">R$ 16.95 <small class="arr">—</small></td>
@@ -623,15 +635,15 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Maringa</strong><span class="est">PR</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.75);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.71);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.66);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.33);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.66);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.83);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">21</td><td class="dc" style="background:rgba(0,122,255,0.79);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.83);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">8</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.16);color:#1d1d1f">1</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
-<td class="num total"><strong>201</strong></td>
+<td class="dc" style="background:rgba(0,229,199,0.46);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.75);color:#0a0b0e">15</td><td class="dc" style="background:rgba(0,229,199,0.71);color:#0a0b0e">14</td><td class="dc" style="background:rgba(0,229,199,0.66);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.33);color:#e8eaed">5</td><td class="dc" style="background:rgba(0,229,199,0.37);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.66);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.83);color:#0a0b0e">17</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">21</td><td class="dc" style="background:rgba(0,229,199,0.79);color:#0a0b0e">16</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,0.46);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,0.46);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.83);color:#0a0b0e">17</td><td class="dc" style="background:rgba(0,229,199,0.46);color:#e8eaed">8</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,229,199,0.20);color:#e8eaed">2</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>202</strong></td>
 <td class="num">10.6</td>
-<td class="num msgs">262</td>
-<td class="money">R$ 3,143.58</td>
-<td class="money">R$ 165.45</td>
-<td class="cpl">R$ 15.64</td>
-<td class="cpl">R$ 12.00</td>
-<td class="cpl ">23%</td>
+<td class="num msgs">264</td>
+<td class="money">R$ 3,161.63</td>
+<td class="money">R$ 166.40</td>
+<td class="cpl">R$ 15.65</td>
+<td class="cpl">R$ 11.98</td>
+<td class="cpl ">24%</td>
 <td class="cpl">—</td>
 <td class="cpl">R$ 14.06</td>
 <td class="cpl tst">R$ 14.37 <small class="arr">—</small></td>
@@ -639,23 +651,23 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-orange" title="Dados da planilha manual"></span></td>
 <td class="cn"><strong>Anapolis</strong><span class="est">GO</span></td>
-<td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.85);color:#fff">15</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">18</td><td class="dc" style="background:rgba(0,229,199,0.85);color:#0a0b0e">15</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>33</strong></td>
 <td class="num">16.5</td>
-<td class="num msgs">42</td>
-<td class="money">R$ 406.33</td>
-<td class="money">R$ 21.39</td>
-<td class="cpl">R$ 12.31</td>
-<td class="cpl">R$ 9.67</td>
-<td class="cpl ">21%</td>
+<td class="num msgs">43</td>
+<td class="money">R$ 413.76</td>
+<td class="money">R$ 21.78</td>
+<td class="cpl">R$ 12.54</td>
+<td class="cpl">R$ 9.62</td>
+<td class="cpl ">23%</td>
 <td class="cpl">R$ 10.90</td>
 <td class="cpl">R$ 10.59</td>
 <td class="cpl tdn">R$ 10.59 <small class="arr">&#9660;</small></td>
-<td class="alert-col"></td>
+<td class="alert-col"><span class="badge badge-green">Otimo</span></td>
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Colatina</strong><span class="est">ES</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.22);color:#1d1d1f">2</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">9</td><td class="dc" style="background:rgba(0,122,255,0.27);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.71);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.76);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.22);color:#1d1d1f">2</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">9</td><td class="dc" style="background:rgba(0,122,255,0.95);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.80);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.61);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.71);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.85);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.36);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">4</td><td class="dc zero">0</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc" style="background:rgba(0,229,199,0.22);color:#e8eaed">2</td><td class="dc" style="background:rgba(0,229,199,0.56);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.27);color:#e8eaed">3</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">18</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.71);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,0.46);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.76);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.22);color:#e8eaed">2</td><td class="dc" style="background:rgba(0,229,199,0.56);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.95);color:#0a0b0e">17</td><td class="dc" style="background:rgba(0,229,199,0.80);color:#0a0b0e">14</td><td class="dc" style="background:rgba(0,229,199,0.61);color:#0a0b0e">10</td><td class="dc" style="background:rgba(0,229,199,0.71);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,0.85);color:#0a0b0e">15</td><td class="dc" style="background:rgba(0,229,199,0.36);color:#e8eaed">5</td><td class="dc" style="background:rgba(0,229,199,0.32);color:#e8eaed">4</td><td class="dc" style="background:rgba(0,229,199,0.32);color:#e8eaed">4</td><td class="dc zero">0</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>162</strong></td>
 <td class="num">8.5</td>
 <td class="num msgs">215</td>
@@ -671,30 +683,30 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Osasco</strong><span class="est">SP</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.23);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,0.73);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.73);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.39);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.31);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.39);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.81);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.81);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.66);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.31);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">23</td><td class="dc" style="background:rgba(0,122,255,0.27);color:#1d1d1f">4</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
-<td class="num total"><strong>210</strong></td>
-<td class="num">11.1</td>
-<td class="num msgs">237</td>
-<td class="money">R$ 3,994.06</td>
-<td class="money">R$ 210.21</td>
-<td class="cpl">R$ 19.02</td>
-<td class="cpl">R$ 16.85</td>
+<td class="dc" style="background:rgba(0,229,199,0.23);color:#e8eaed">3</td><td class="dc" style="background:rgba(0,229,199,0.73);color:#0a0b0e">16</td><td class="dc" style="background:rgba(0,229,199,0.73);color:#0a0b0e">16</td><td class="dc" style="background:rgba(0,229,199,0.58);color:#e8eaed">12</td><td class="dc" style="background:rgba(0,229,199,0.39);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.46);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.31);color:#e8eaed">5</td><td class="dc" style="background:rgba(0,229,199,0.39);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.81);color:#0a0b0e">18</td><td class="dc" style="background:rgba(0,229,199,0.43);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.81);color:#0a0b0e">18</td><td class="dc" style="background:rgba(0,229,199,0.54);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.66);color:#0a0b0e">14</td><td class="dc" style="background:rgba(0,229,199,0.58);color:#e8eaed">12</td><td class="dc" style="background:rgba(0,229,199,0.31);color:#e8eaed">5</td><td class="dc" style="background:rgba(0,229,199,0.54);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.54);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">23</td><td class="dc" style="background:rgba(0,229,199,0.35);color:#e8eaed">6</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>212</strong></td>
+<td class="num">11.2</td>
+<td class="num msgs">238</td>
+<td class="money">R$ 4,008.19</td>
+<td class="money">R$ 210.96</td>
+<td class="cpl">R$ 18.91</td>
+<td class="cpl">R$ 16.84</td>
 <td class="cpl ">11%</td>
 <td class="cpl">R$ 13.04</td>
 <td class="cpl">R$ 25.11</td>
-<td class="cpl tst">R$ 20.08 <small class="arr">—</small></td>
+<td class="cpl tst">R$ 20.09 <small class="arr">—</small></td>
 <td class="alert-col"><span class="badge badge-red">CPL Alto</span></td>
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Lapa</strong><span class="est">SP</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.22);color:#1d1d1f">2</td><td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.90);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.33);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.59);color:#fff">9</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.69);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.59);color:#fff">9</td><td class="dc" style="background:rgba(0,122,255,0.69);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.79);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.90);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">7</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
-<td class="num total"><strong>170</strong></td>
-<td class="num">8.9</td>
+<td class="dc" style="background:rgba(0,229,199,0.64);color:#0a0b0e">10</td><td class="dc" style="background:rgba(0,229,199,0.22);color:#e8eaed">2</td><td class="dc" style="background:rgba(0,229,199,0.64);color:#0a0b0e">10</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">17</td><td class="dc" style="background:rgba(0,229,199,0.90);color:#0a0b0e">15</td><td class="dc" style="background:rgba(0,229,199,0.33);color:#e8eaed">4</td><td class="dc" style="background:rgba(0,229,199,0.59);color:#e8eaed">9</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,229,199,0.64);color:#0a0b0e">10</td><td class="dc" style="background:rgba(0,229,199,0.69);color:#0a0b0e">11</td><td class="dc" style="background:rgba(0,229,199,0.59);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.69);color:#0a0b0e">11</td><td class="dc" style="background:rgba(0,229,199,0.28);color:#e8eaed">3</td><td class="dc" style="background:rgba(0,229,199,0.48);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.48);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.79);color:#0a0b0e">13</td><td class="dc" style="background:rgba(0,229,199,0.64);color:#0a0b0e">10</td><td class="dc" style="background:rgba(0,229,199,0.90);color:#0a0b0e">15</td><td class="dc" style="background:rgba(0,229,199,0.53);color:#e8eaed">8</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>171</strong></td>
+<td class="num">9.0</td>
 <td class="num msgs">234</td>
-<td class="money">R$ 3,621.66</td>
-<td class="money">R$ 190.61</td>
-<td class="cpl">R$ 21.30</td>
-<td class="cpl">R$ 15.48</td>
+<td class="money">R$ 3,634.95</td>
+<td class="money">R$ 191.31</td>
+<td class="cpl">R$ 21.26</td>
+<td class="cpl">R$ 15.53</td>
 <td class="cpl ">27%</td>
 <td class="cpl">R$ 12.31</td>
 <td class="cpl">R$ 17.54</td>
@@ -703,14 +715,14 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Brasilia</strong><span class="est">DF</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.28);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">25</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">30</td><td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">13</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">23</td><td class="dc" style="background:rgba(0,122,255,0.42);color:#1d1d1f">15</td><td class="dc" style="background:rgba(0,122,255,0.66);color:#fff">27</td><td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">17</td><td class="dc" style="background:rgba(0,122,255,0.60);color:#fff">24</td><td class="dc" style="background:rgba(0,122,255,0.20);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.14);color:#1d1d1f">1</td><td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">26</td><td class="dc" style="background:rgba(0,122,255,0.96);color:#fff">42</td><td class="dc" style="background:rgba(0,122,255,0.90);color:#fff">39</td><td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.78);color:#fff">33</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">44</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">19</td><td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">9</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
-<td class="num total"><strong>408</strong></td>
-<td class="num">21.5</td>
-<td class="num msgs">454</td>
-<td class="money">R$ 3,953.93</td>
-<td class="money">R$ 208.10</td>
-<td class="cpl">R$ 9.69</td>
-<td class="cpl">R$ 8.71</td>
+<td class="dc" style="background:rgba(0,229,199,0.28);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">25</td><td class="dc" style="background:rgba(0,229,199,0.72);color:#0a0b0e">30</td><td class="dc" style="background:rgba(0,229,199,0.38);color:#e8eaed">13</td><td class="dc" style="background:rgba(0,229,199,0.58);color:#e8eaed">23</td><td class="dc" style="background:rgba(0,229,199,0.42);color:#e8eaed">15</td><td class="dc" style="background:rgba(0,229,199,0.66);color:#0a0b0e">27</td><td class="dc" style="background:rgba(0,229,199,0.46);color:#e8eaed">17</td><td class="dc" style="background:rgba(0,229,199,0.60);color:#e8eaed">24</td><td class="dc" style="background:rgba(0,229,199,0.20);color:#e8eaed">4</td><td class="dc" style="background:rgba(0,229,199,0.14);color:#e8eaed">1</td><td class="dc" style="background:rgba(0,229,199,0.64);color:#0a0b0e">26</td><td class="dc" style="background:rgba(0,229,199,0.96);color:#0a0b0e">42</td><td class="dc" style="background:rgba(0,229,199,0.90);color:#0a0b0e">39</td><td class="dc" style="background:rgba(0,229,199,0.30);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.78);color:#0a0b0e">33</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">44</td><td class="dc" style="background:rgba(0,229,199,0.50);color:#e8eaed">19</td><td class="dc" style="background:rgba(0,229,199,0.36);color:#e8eaed">12</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>411</strong></td>
+<td class="num">21.6</td>
+<td class="num msgs">455</td>
+<td class="money">R$ 3,967.10</td>
+<td class="money">R$ 208.79</td>
+<td class="cpl">R$ 9.65</td>
+<td class="cpl">R$ 8.72</td>
 <td class="cpl ">10%</td>
 <td class="cpl">R$ 10.37</td>
 <td class="cpl">R$ 8.24</td>
@@ -719,12 +731,12 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Sao Luis</strong><span class="est">MA</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">15</td><td class="dc" style="background:rgba(0,122,255,0.52);color:#fff">24</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">53</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">28</td><td class="dc" style="background:rgba(0,122,255,0.49);color:#1d1d1f">22</td><td class="dc" style="background:rgba(0,122,255,0.35);color:#1d1d1f">14</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">25</td><td class="dc" style="background:rgba(0,122,255,0.27);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#fff">23</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">25</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">36</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">30</td><td class="dc" style="background:rgba(0,122,255,0.70);color:#fff">35</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">28</td><td class="dc" style="background:rgba(0,122,255,0.27);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.78);color:#fff">40</td><td class="dc" style="background:rgba(0,122,255,0.87);color:#fff">45</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">33</td><td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">12</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
-<td class="num total"><strong>506</strong></td>
-<td class="num">26.6</td>
-<td class="num msgs">540</td>
-<td class="money">R$ 3,461.99</td>
-<td class="money">R$ 182.21</td>
+<td class="dc" style="background:rgba(0,229,199,0.37);color:#e8eaed">15</td><td class="dc" style="background:rgba(0,229,199,0.52);color:#e8eaed">24</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">53</td><td class="dc" style="background:rgba(0,229,199,0.58);color:#e8eaed">28</td><td class="dc" style="background:rgba(0,229,199,0.49);color:#e8eaed">22</td><td class="dc" style="background:rgba(0,229,199,0.35);color:#e8eaed">14</td><td class="dc" style="background:rgba(0,229,199,0.54);color:#e8eaed">25</td><td class="dc" style="background:rgba(0,229,199,0.27);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.50);color:#e8eaed">23</td><td class="dc" style="background:rgba(0,229,199,0.54);color:#e8eaed">25</td><td class="dc" style="background:rgba(0,229,199,0.72);color:#0a0b0e">36</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">30</td><td class="dc" style="background:rgba(0,229,199,0.70);color:#0a0b0e">35</td><td class="dc" style="background:rgba(0,229,199,0.58);color:#e8eaed">28</td><td class="dc" style="background:rgba(0,229,199,0.27);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.78);color:#0a0b0e">40</td><td class="dc" style="background:rgba(0,229,199,0.87);color:#0a0b0e">45</td><td class="dc" style="background:rgba(0,229,199,0.67);color:#0a0b0e">33</td><td class="dc" style="background:rgba(0,229,199,0.35);color:#e8eaed">14</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>508</strong></td>
+<td class="num">26.7</td>
+<td class="num msgs">542</td>
+<td class="money">R$ 3,472.95</td>
+<td class="money">R$ 182.79</td>
 <td class="cpl">R$ 6.84</td>
 <td class="cpl">R$ 6.41</td>
 <td class="cpl ">6%</td>
@@ -735,14 +747,14 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Caxias</strong><span class="est">MA</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.27);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.63);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.60);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.63);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.45);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.45);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.27);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.38);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">24</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">12</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
-<td class="num total"><strong>184</strong></td>
+<td class="dc" style="background:rgba(0,229,199,0.27);color:#e8eaed">4</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.38);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.56);color:#e8eaed">12</td><td class="dc" style="background:rgba(0,229,199,0.63);color:#0a0b0e">14</td><td class="dc" style="background:rgba(0,229,199,0.38);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.60);color:#e8eaed">13</td><td class="dc" style="background:rgba(0,229,199,0.30);color:#e8eaed">5</td><td class="dc" style="background:rgba(0,229,199,0.63);color:#0a0b0e">14</td><td class="dc" style="background:rgba(0,229,199,0.45);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.67);color:#0a0b0e">15</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.34);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.45);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.27);color:#e8eaed">4</td><td class="dc" style="background:rgba(0,229,199,0.38);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.34);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">24</td><td class="dc" style="background:rgba(0,229,199,0.60);color:#e8eaed">13</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>185</strong></td>
 <td class="num">9.7</td>
 <td class="num msgs">212</td>
-<td class="money">R$ 3,305.04</td>
-<td class="money">R$ 173.95</td>
-<td class="cpl">R$ 17.96</td>
-<td class="cpl">R$ 15.59</td>
+<td class="money">R$ 3,316.62</td>
+<td class="money">R$ 174.56</td>
+<td class="cpl">R$ 17.93</td>
+<td class="cpl">R$ 15.64</td>
 <td class="cpl ">13%</td>
 <td class="cpl">R$ 9.58</td>
 <td class="cpl">R$ 16.92</td>
@@ -751,30 +763,30 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Campo Grande</strong><span class="est">MS</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.61);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.51);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.51);color:#fff">13</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">15</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">12</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">29</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.76);color:#fff">21</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.30);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.15);color:#1d1d1f">1</td><td class="dc" style="background:rgba(0,122,255,0.61);color:#fff">16</td><td class="dc" style="background:rgba(0,122,255,0.67);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.48);color:#1d1d1f">12</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc" style="background:rgba(0,229,199,0.30);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.67);color:#0a0b0e">18</td><td class="dc" style="background:rgba(0,229,199,0.64);color:#0a0b0e">17</td><td class="dc" style="background:rgba(0,229,199,0.61);color:#0a0b0e">16</td><td class="dc" style="background:rgba(0,229,199,0.51);color:#e8eaed">13</td><td class="dc" style="background:rgba(0,229,199,0.51);color:#e8eaed">13</td><td class="dc" style="background:rgba(0,229,199,0.58);color:#e8eaed">15</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,229,199,0.48);color:#e8eaed">12</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">29</td><td class="dc" style="background:rgba(0,229,199,0.58);color:#e8eaed">15</td><td class="dc" style="background:rgba(0,229,199,0.76);color:#0a0b0e">21</td><td class="dc" style="background:rgba(0,229,199,0.58);color:#e8eaed">15</td><td class="dc" style="background:rgba(0,229,199,0.54);color:#e8eaed">14</td><td class="dc" style="background:rgba(0,229,199,0.30);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.15);color:#e8eaed">1</td><td class="dc" style="background:rgba(0,229,199,0.61);color:#0a0b0e">16</td><td class="dc" style="background:rgba(0,229,199,0.67);color:#0a0b0e">18</td><td class="dc" style="background:rgba(0,229,199,0.48);color:#e8eaed">12</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>257</strong></td>
 <td class="num">13.5</td>
 <td class="num msgs">306</td>
-<td class="money">R$ 3,070.92</td>
-<td class="money">R$ 161.63</td>
-<td class="cpl">R$ 11.95</td>
-<td class="cpl">R$ 10.04</td>
+<td class="money">R$ 3,083.61</td>
+<td class="money">R$ 162.30</td>
+<td class="cpl">R$ 12.00</td>
+<td class="cpl">R$ 10.08</td>
 <td class="cpl ">16%</td>
 <td class="cpl">R$ 14.00</td>
 <td class="cpl">R$ 13.77</td>
 <td class="cpl tst">R$ 11.70 <small class="arr">—</small></td>
-<td class="alert-col"><span class="badge badge-orange">Atencao</span></td>
+<td class="alert-col"></td>
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Recife</strong><span class="est">PE</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.34);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.84);color:#fff">23</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">28</td><td class="dc" style="background:rgba(0,122,255,0.94);color:#fff">26</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">12</td><td class="dc" style="background:rgba(0,122,255,0.65);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.75);color:#fff">20</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">10</td><td class="dc" style="background:rgba(0,122,255,0.72);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.59);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.43);color:#1d1d1f">10</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">12</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">12</td><td class="dc" style="background:rgba(0,122,255,0.75);color:#fff">20</td><td class="dc" style="background:rgba(0,122,255,0.59);color:#fff">15</td><td class="dc" style="background:rgba(0,122,255,0.56);color:#fff">14</td><td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">8</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc" style="background:rgba(0,229,199,0.34);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.34);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.84);color:#0a0b0e">23</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">28</td><td class="dc" style="background:rgba(0,229,199,0.94);color:#0a0b0e">26</td><td class="dc" style="background:rgba(0,229,199,0.50);color:#e8eaed">12</td><td class="dc" style="background:rgba(0,229,199,0.65);color:#0a0b0e">17</td><td class="dc" style="background:rgba(0,229,199,0.37);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.75);color:#0a0b0e">20</td><td class="dc" style="background:rgba(0,229,199,0.43);color:#e8eaed">10</td><td class="dc" style="background:rgba(0,229,199,0.72);color:#0a0b0e">19</td><td class="dc" style="background:rgba(0,229,199,0.59);color:#e8eaed">15</td><td class="dc" style="background:rgba(0,229,199,0.43);color:#e8eaed">10</td><td class="dc" style="background:rgba(0,229,199,0.50);color:#e8eaed">12</td><td class="dc" style="background:rgba(0,229,199,0.50);color:#e8eaed">12</td><td class="dc" style="background:rgba(0,229,199,0.75);color:#0a0b0e">20</td><td class="dc" style="background:rgba(0,229,199,0.59);color:#e8eaed">15</td><td class="dc" style="background:rgba(0,229,199,0.56);color:#e8eaed">14</td><td class="dc" style="background:rgba(0,229,199,0.37);color:#e8eaed">8</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>283</strong></td>
 <td class="num">14.9</td>
 <td class="num msgs">342</td>
-<td class="money">R$ 2,947.07</td>
-<td class="money">R$ 155.11</td>
-<td class="cpl">R$ 10.41</td>
-<td class="cpl">R$ 8.62</td>
+<td class="money">R$ 2,954.90</td>
+<td class="money">R$ 155.52</td>
+<td class="cpl">R$ 10.44</td>
+<td class="cpl">R$ 8.64</td>
 <td class="cpl ">17%</td>
 <td class="cpl">R$ 10.97</td>
 <td class="cpl">R$ 10.54</td>
@@ -783,7 +795,7 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Imperatriz</strong><span class="est">MA</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">13</td><td class="dc" style="background:rgba(0,122,255,0.55);color:#fff">19</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">13</td><td class="dc" style="background:rgba(0,122,255,0.21);color:#1d1d1f">4</td><td class="dc" style="background:rgba(0,122,255,0.32);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.44);color:#1d1d1f">14</td><td class="dc" style="background:rgba(0,122,255,0.53);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">39</td><td class="dc" style="background:rgba(0,122,255,0.75);color:#fff">28</td><td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">11</td><td class="dc" style="background:rgba(0,122,255,0.53);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.53);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.73);color:#fff">27</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.64);color:#fff">23</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">13</td><td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">11</td><td class="dc" style="background:rgba(0,122,255,0.17);color:#1d1d1f">2</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc" style="background:rgba(0,229,199,0.32);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">13</td><td class="dc" style="background:rgba(0,229,199,0.55);color:#e8eaed">19</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">13</td><td class="dc" style="background:rgba(0,229,199,0.21);color:#e8eaed">4</td><td class="dc" style="background:rgba(0,229,199,0.32);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.44);color:#e8eaed">14</td><td class="dc" style="background:rgba(0,229,199,0.53);color:#e8eaed">18</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">39</td><td class="dc" style="background:rgba(0,229,199,0.75);color:#0a0b0e">28</td><td class="dc" style="background:rgba(0,229,199,0.37);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.53);color:#e8eaed">18</td><td class="dc" style="background:rgba(0,229,199,0.53);color:#e8eaed">18</td><td class="dc" style="background:rgba(0,229,199,0.73);color:#0a0b0e">27</td><td class="dc" style="background:rgba(0,229,199,0.50);color:#e8eaed">17</td><td class="dc" style="background:rgba(0,229,199,0.64);color:#0a0b0e">23</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">13</td><td class="dc" style="background:rgba(0,229,199,0.37);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.17);color:#e8eaed">2</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>306</strong></td>
 <td class="num">16.1</td>
 <td class="num msgs">293</td>
@@ -799,13 +811,13 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Montes Claros</strong><span class="est">MG</span></td>
-<td class="dc" style="background:rgba(0,122,255,0.25);color:#1d1d1f">3</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.37);color:#1d1d1f">6</td><td class="dc" style="background:rgba(0,122,255,0.58);color:#fff">11</td><td class="dc" style="background:rgba(0,122,255,0.46);color:#1d1d1f">8</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">7</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">21</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.87);color:#fff">18</td><td class="dc" style="background:rgba(0,122,255,0.54);color:#fff">10</td><td class="dc" style="background:rgba(0,122,255,0.62);color:#fff">12</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.41);color:#1d1d1f">7</td><td class="dc" style="background:rgba(0,122,255,0.83);color:#fff">17</td><td class="dc" style="background:rgba(0,122,255,0.50);color:#1d1d1f">9</td><td class="dc" style="background:rgba(0,122,255,0.25);color:#1d1d1f">3</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="dc" style="background:rgba(0,229,199,0.25);color:#e8eaed">3</td><td class="dc" style="background:rgba(0,229,199,0.50);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,0.37);color:#e8eaed">6</td><td class="dc" style="background:rgba(0,229,199,0.58);color:#e8eaed">11</td><td class="dc" style="background:rgba(0,229,199,0.46);color:#e8eaed">8</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">7</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,229,199,0.50);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">21</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,0.87);color:#0a0b0e">18</td><td class="dc" style="background:rgba(0,229,199,0.54);color:#e8eaed">10</td><td class="dc" style="background:rgba(0,229,199,0.62);color:#0a0b0e">12</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.41);color:#e8eaed">7</td><td class="dc" style="background:rgba(0,229,199,0.83);color:#0a0b0e">17</td><td class="dc" style="background:rgba(0,229,199,0.50);color:#e8eaed">9</td><td class="dc" style="background:rgba(0,229,199,0.25);color:#e8eaed">3</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
 <td class="num total"><strong>181</strong></td>
 <td class="num">9.5</td>
-<td class="num msgs">269</td>
-<td class="money">R$ 2,677.75</td>
-<td class="money">R$ 140.93</td>
-<td class="cpl">R$ 14.79</td>
+<td class="num msgs">270</td>
+<td class="money">R$ 2,685.34</td>
+<td class="money">R$ 141.33</td>
+<td class="cpl">R$ 14.84</td>
 <td class="cpl">R$ 9.95</td>
 <td class="cpl perda-alta">33%</td>
 <td class="cpl">R$ 16.79</td>
@@ -815,14 +827,14 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Parauapebas</strong><span class="est">PA</span></td>
-<td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.27);color:#1d1d1f">5</td><td class="dc" style="background:rgba(0,122,255,0.24);color:#1d1d1f">4</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,0.82);color:#fff">24</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">30</td><td class="dc" style="background:rgba(0,122,255,0.82);color:#fff">24</td><td class="dc" style="background:rgba(0,122,255,0.24);color:#1d1d1f">4</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
-<td class="num total"><strong>91</strong></td>
+<td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,229,199,0.27);color:#e8eaed">5</td><td class="dc" style="background:rgba(0,229,199,0.24);color:#e8eaed">4</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,229,199,0.82);color:#0a0b0e">24</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">30</td><td class="dc" style="background:rgba(0,229,199,0.82);color:#0a0b0e">24</td><td class="dc" style="background:rgba(0,229,199,0.27);color:#e8eaed">5</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>92</strong></td>
 <td class="num">4.8</td>
-<td class="num msgs">83</td>
-<td class="money">R$ 795.15</td>
-<td class="money">R$ 41.85</td>
-<td class="cpl">R$ 8.74</td>
-<td class="cpl">R$ 9.58</td>
+<td class="num msgs">85</td>
+<td class="money">R$ 806.44</td>
+<td class="money">R$ 42.44</td>
+<td class="cpl">R$ 8.77</td>
+<td class="cpl">R$ 9.49</td>
 <td class="cpl ">—</td>
 <td class="cpl">R$ 8.07</td>
 <td class="cpl">R$ 8.44</td>
@@ -831,18 +843,18 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-green"></span></td>
 <td class="cn"><strong>Cuiaba</strong><span class="est">MT</span></td>
-<td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,122,255,1.00);color:#fff">47</td><td class="dc" style="background:rgba(0,122,255,0.61);color:#fff">26</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
-<td class="num total"><strong>73</strong></td>
-<td class="num">3.8</td>
+<td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc zero">0</td><td class="dc" style="background:rgba(0,229,199,1.00);color:#0a0b0e">47</td><td class="dc" style="background:rgba(0,229,199,0.63);color:#0a0b0e">27</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+<td class="num total"><strong>74</strong></td>
+<td class="num">3.9</td>
 <td class="num msgs">67</td>
-<td class="money">R$ 220.91</td>
-<td class="money">R$ 11.63</td>
-<td class="cpl">R$ 3.03</td>
-<td class="cpl">R$ 3.30</td>
+<td class="money">R$ 229.82</td>
+<td class="money">R$ 12.10</td>
+<td class="cpl">R$ 3.11</td>
+<td class="cpl">R$ 3.43</td>
 <td class="cpl ">—</td>
 <td class="cpl">R$ 2.79</td>
 <td class="cpl">R$ 2.79</td>
-<td class="cpl tst">R$ 2.79 <small class="arr">—</small></td>
+<td class="cpl tdn">R$ 2.79 <small class="arr">&#9660;</small></td>
 <td class="alert-col"></td>
 </tr><tr class="ur">
 <td class="cs"><span class="dot dot-gray"></span></td>
@@ -863,14 +875,14 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr>
   <tr class="tr-total">
     <td></td><td><strong>TOTAL</strong></td>
-    <td class="dc dtot">145</td><td class="dc dtot">244</td><td class="dc dtot">351</td><td class="dc dtot">285</td><td class="dc dtot">251</td><td class="dc dtot">212</td><td class="dc dtot">286</td><td class="dc dtot">176</td><td class="dc dtot">348</td><td class="dc dtot">333</td><td class="dc dtot">336</td><td class="dc dtot">336</td><td class="dc dtot">289</td><td class="dc dtot">349</td><td class="dc dtot">200</td><td class="dc dtot">375</td><td class="dc dtot">415</td><td class="dc dtot">361</td><td class="dc dtot">132</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
-    <td class="num"><strong>5424</strong></td>
-    <td class="num">285.5</td>
-    <td class="num msgs">6395</td>
-    <td class="money"><strong>R$ 86,236.57</strong></td>
-    <td class="money">R$ 4,538.77</td>
+    <td class="dc dtot">145</td><td class="dc dtot">244</td><td class="dc dtot">351</td><td class="dc dtot">285</td><td class="dc dtot">251</td><td class="dc dtot">212</td><td class="dc dtot">286</td><td class="dc dtot">176</td><td class="dc dtot">348</td><td class="dc dtot">333</td><td class="dc dtot">336</td><td class="dc dtot">336</td><td class="dc dtot">289</td><td class="dc dtot">349</td><td class="dc dtot">200</td><td class="dc dtot">375</td><td class="dc dtot">415</td><td class="dc dtot">361</td><td class="dc dtot">147</td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td><td class="dc"></td>
+    <td class="num"><strong>5439</strong></td>
+    <td class="num">286.3</td>
+    <td class="num msgs">6409</td>
+    <td class="money"><strong>R$ 86,502.23</strong></td>
+    <td class="money">R$ 4,552.75</td>
     <td class="cpl"><strong>R$ 15.90</strong></td>
-    <td class="cpl">R$ 13.48</td>
+    <td class="cpl">R$ 13.50</td>
     <td class="cpl">15%</td>
     <td colspan="4"></td>
   </tr>
@@ -890,21 +902,21 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 <td class="cn"><strong>Vitoria</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
 <td class="money"><span class="cc-badge">Cartao de Credito</span></td>
-<td class="money">R$ 353.43</td>
+<td class="money">R$ 354.28</td>
 <td class="num">—</td>
 <td class="bar-col"></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Vila Velha</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 95.20</td>
-<td class="money">R$ 254.62</td>
+<td class="money">R$ 110.32</td>
+<td class="money">R$ 255.19</td>
 <td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Cachoeiro</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 78.65</td>
-<td class="money">R$ 196.54</td>
+<td class="money">R$ 90.62</td>
+<td class="money">R$ 197.18</td>
 <td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
@@ -917,65 +929,65 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cn"><strong>Linhares</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 68.69</td>
-<td class="money">R$ 208.61</td>
+<td class="money">R$ 79.99</td>
+<td class="money">R$ 209.23</td>
 <td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Santo Amaro</strong></td>
 <td class="num"><span class="st-warn">Gratuito</span></td>
 <td class="money"><span class="cc-badge">Cartao de Credito</span></td>
-<td class="money">R$ 180.90</td>
+<td class="money">R$ 181.32</td>
 <td class="num">—</td>
 <td class="bar-col"></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Sao Jose do Rio Preto</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 91.08</td>
-<td class="money">R$ 223.95</td>
+<td class="money">R$ 103.89</td>
+<td class="money">R$ 224.57</td>
 <td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Governador Valadares</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
 <td class="money"><span class="cc-badge">Cartao de Credito</span></td>
-<td class="money">R$ 242.93</td>
+<td class="money">R$ 243.85</td>
 <td class="num">—</td>
 <td class="bar-col"></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Eunapolis</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 70.04</td>
-<td class="money">R$ 172.30</td>
+<td class="money">R$ 83.52</td>
+<td class="money">R$ 173.02</td>
 <td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Jundiai</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 98.56</td>
-<td class="money">R$ 307.05</td>
+<td class="money">R$ 115.82</td>
+<td class="money">R$ 307.99</td>
 <td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Marilia</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 66.50</td>
-<td class="money">R$ 157.64</td>
+<td class="money">R$ 75.51</td>
+<td class="money">R$ 158.12</td>
 <td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Maringa</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 0.96</td>
-<td class="money">R$ 165.45</td>
-<td class="num">—</td>
+<td class="money">R$ 17.27</td>
+<td class="money">R$ 166.40</td>
+<td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Anapolis</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 52.49</td>
-<td class="money">R$ 21.39</td>
-<td class="num"><span class="dias-critico">2 dias</span></td>
+<td class="money">R$ 64.10</td>
+<td class="money">R$ 21.78</td>
+<td class="num"><span class="dias-critico">3 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Colatina</strong></td>
@@ -987,50 +999,50 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cn"><strong>Osasco</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 88.17</td>
-<td class="money">R$ 210.21</td>
+<td class="money">R$ 102.70</td>
+<td class="money">R$ 210.96</td>
 <td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Lapa</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 67.49</td>
-<td class="money">R$ 190.61</td>
+<td class="money">R$ 80.42</td>
+<td class="money">R$ 191.31</td>
 <td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Brasilia</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 76.06</td>
-<td class="money">R$ 208.10</td>
+<td class="money">R$ 89.45</td>
+<td class="money">R$ 208.79</td>
 <td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Sao Luis</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 65.82</td>
-<td class="money">R$ 182.21</td>
+<td class="money">R$ 76.69</td>
+<td class="money">R$ 182.79</td>
 <td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Caxias</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 71.67</td>
-<td class="money">R$ 173.95</td>
+<td class="money">R$ 83.25</td>
+<td class="money">R$ 174.56</td>
 <td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Campo Grande</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 82.18</td>
-<td class="money">R$ 161.63</td>
-<td class="num"><span class="dias-critico">0 dias</span></td>
+<td class="money">R$ 99.96</td>
+<td class="money">R$ 162.30</td>
+<td class="num"><span class="dias-critico">1 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Recife</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 54.01</td>
-<td class="money">R$ 155.11</td>
+<td class="money">R$ 62.46</td>
+<td class="money">R$ 155.52</td>
 <td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
@@ -1043,24 +1055,24 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="cn"><strong>Montes Claros</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 60.38</td>
-<td class="money">R$ 140.93</td>
+<td class="money">R$ 67.71</td>
+<td class="money">R$ 141.33</td>
 <td class="num"><span class="dias-critico">0 dias</span></td>
 <td class="bar-col"><div class="pbar"><div class="pfill" style="width:100%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Parauapebas</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 48.12</td>
-<td class="money">R$ 41.85</td>
-<td class="num"><span class="dias-critico">1 dias</span></td>
-<td class="bar-col"><div class="pbar"><div class="pfill" style="width:95%;background:#FF3B30"></div></div></td>
+<td class="money">R$ 65.91</td>
+<td class="money">R$ 42.44</td>
+<td class="num"><span class="dias-critico">2 dias</span></td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:93%;background:#FF3B30"></div></div></td>
 </tr><tr class="ur">
 <td class="cn"><strong>Cuiaba</strong></td>
 <td class="num"><span class="st-ok">Ativa</span></td>
-<td class="money">R$ 86.57</td>
-<td class="money">R$ 11.63</td>
-<td class="num">7 dias</td>
-<td class="bar-col"><div class="pbar"><div class="pfill" style="width:93%;background:#FF3B30"></div></div></td>
+<td class="money">R$ 98.90</td>
+<td class="money">R$ 12.10</td>
+<td class="num">8 dias</td>
+<td class="bar-col"><div class="pbar"><div class="pfill" style="width:92%;background:#FF3B30"></div></div></td>
 </tr>
   </tbody></table></div>
 </div>
@@ -1080,102 +1092,102 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 <td class="num">1</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads chamada paty — Cópia</strong><br><span class="est">Brasilia — 31/08 [vendas] [wpp] [km-clinica] [</span></td>
-<td class="money">R$ 1,814.28</td>
-<td class="num">919</td>
-<td class="num">1.40%</td>
+<td class="money">R$ 1,821.67</td>
+<td class="num">927</td>
+<td class="num">1.41%</td>
 <td class="num" style="font-weight:700;color:#007AFF">243</td>
-<td class="num">26.4%</td>
-<td class="cpl">R$ 7.47</td>
+<td class="num">26.2%</td>
+<td class="cpl">R$ 7.50</td>
 </tr><tr class="ur">
 <td class="num">2</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads sao luis paty</strong><br><span class="est">Sao Luis — 22/01 [vendas] [wpp] [cidade] [empr</span></td>
-<td class="money">R$ 551.42</td>
-<td class="num">852</td>
-<td class="num">1.88%</td>
-<td class="num" style="font-weight:700;color:#007AFF">190</td>
+<td class="money">R$ 553.31</td>
+<td class="num">858</td>
+<td class="num">1.89%</td>
+<td class="num" style="font-weight:700;color:#007AFF">191</td>
 <td class="num">22.3%</td>
 <td class="cpl">R$ 2.90</td>
 </tr><tr class="ur">
 <td class="num">3</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads voce tem dm2 gv</strong><br><span class="est">Governador Valadares — 26/02 [vendas] [wpp] [ceps-bairros]</span></td>
-<td class="money">R$ 2,061.39</td>
-<td class="num">1,302</td>
+<td class="money">R$ 2,069.24</td>
+<td class="num">1,305</td>
 <td class="num">1.17%</td>
 <td class="num" style="font-weight:700;color:#007AFF">130</td>
 <td class="num">10.0%</td>
-<td class="cpl">R$ 15.86</td>
+<td class="cpl">R$ 15.92</td>
 </tr><tr class="ur">
 <td class="num">4</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>Ads geral paty</strong><br><span class="est">Recife — 25/11 [vendas] [wpp] [bairros + km </span></td>
-<td class="money">R$ 649.62</td>
-<td class="num">608</td>
-<td class="num">2.54%</td>
+<td class="money">R$ 651.22</td>
+<td class="num">611</td>
+<td class="num">2.55%</td>
 <td class="num" style="font-weight:700;color:#007AFF">130</td>
-<td class="num">21.4%</td>
-<td class="cpl">R$ 5.00</td>
+<td class="num">21.3%</td>
+<td class="cpl">R$ 5.01</td>
 </tr><tr class="ur">
 <td class="num">5</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads exames jonas</strong><br><span class="est">Recife — 04/02 [engajamento] [rmk] [recife] </span></td>
-<td class="money">R$ 686.62</td>
+<td class="money">R$ 687.92</td>
 <td class="num">636</td>
-<td class="num">2.61%</td>
+<td class="num">2.60%</td>
 <td class="num" style="font-weight:700;color:#007AFF">108</td>
 <td class="num">17.0%</td>
-<td class="cpl">R$ 6.36</td>
+<td class="cpl">R$ 6.37</td>
 </tr><tr class="ur">
 <td class="num">6</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads sao luis paty</strong><br><span class="est">Sao Luis — 22/01 [vendas] [wpp] [cidades] [40+</span></td>
-<td class="money">R$ 358.90</td>
-<td class="num">429</td>
-<td class="num">1.43%</td>
+<td class="money">R$ 361.01</td>
+<td class="num">431</td>
+<td class="num">1.42%</td>
 <td class="num" style="font-weight:700;color:#007AFF">107</td>
-<td class="num">24.9%</td>
-<td class="cpl">R$ 3.35</td>
+<td class="num">24.8%</td>
+<td class="cpl">R$ 3.37</td>
 </tr><tr class="ur">
 <td class="num">7</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads sao luis paty</strong><br><span class="est">Sao Luis — 10/01 [vendas] [wpp] [bairros-cep] </span></td>
-<td class="money">R$ 703.05</td>
-<td class="num">845</td>
+<td class="money">R$ 705.19</td>
+<td class="num">847</td>
 <td class="num">1.94%</td>
 <td class="num" style="font-weight:700;color:#007AFF">84</td>
 <td class="num">9.9%</td>
-<td class="cpl">R$ 8.37</td>
+<td class="cpl">R$ 8.40</td>
 </tr><tr class="ur">
 <td class="num">8</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads pancreas e insulina</strong><br><span class="est">Vitoria — 06/03 [vendas] [serra-cep] [zara] [</span></td>
-<td class="money">R$ 630.39</td>
-<td class="num">854</td>
+<td class="money">R$ 631.71</td>
+<td class="num">856</td>
 <td class="num">3.55%</td>
 <td class="num" style="font-weight:700;color:#007AFF">80</td>
-<td class="num">9.4%</td>
-<td class="cpl">R$ 7.88</td>
+<td class="num">9.3%</td>
+<td class="cpl">R$ 7.90</td>
 </tr><tr class="ur">
 <td class="num">9</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads voce tem dm2</strong><br><span class="est">Sao Luis — 08/10 [vendas] [wpp] [km-clinica] [</span></td>
-<td class="money">R$ 554.73</td>
-<td class="num">411</td>
+<td class="money">R$ 555.56</td>
+<td class="num">412</td>
 <td class="num">1.79%</td>
 <td class="num" style="font-weight:700;color:#007AFF">74</td>
 <td class="num">18.0%</td>
-<td class="cpl">R$ 7.50</td>
+<td class="cpl">R$ 7.51</td>
 </tr><tr class="ur">
 <td class="num">10</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads chamada paty — Cópia</strong><br><span class="est">Brasilia — 31/08 [vendas] [wpp] [km-clinica] [</span></td>
-<td class="money">R$ 330.94</td>
-<td class="num">245</td>
-<td class="num">2.35%</td>
+<td class="money">R$ 332.70</td>
+<td class="num">246</td>
+<td class="num">2.34%</td>
 <td class="num" style="font-weight:700;color:#007AFF">73</td>
-<td class="num">29.8%</td>
-<td class="cpl">R$ 4.53</td>
+<td class="num">29.7%</td>
+<td class="cpl">R$ 4.56</td>
 </tr>
   </tbody></table></div>
 </div>
@@ -1290,26 +1302,6 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 </tr><tr class="ur">
 <td class="num">11</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
-<td class="cn"><strong>ads controlar por anos</strong><br><span class="est">Campo Grande — 17/03 [vendas] [wpp] [ceps-bairros-</span></td>
-<td class="money">R$ 3.49</td>
-<td class="num">3</td>
-<td class="num">1.67%</td>
-<td class="num">2</td>
-<td class="num">66.7%</td>
-<td class="cpl" style="font-weight:700">R$ 1.75</td>
-</tr><tr class="ur">
-<td class="num">12</td>
-<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
-<td class="cn"><strong>ads uso de insulina</strong><br><span class="est">Vila Velha — 08/03 [venda] [wpp] [vila-velha-cep</span></td>
-<td class="money">R$ 1.76</td>
-<td class="num">3</td>
-<td class="num">2.65%</td>
-<td class="num">1</td>
-<td class="num">33.3%</td>
-<td class="cpl" style="font-weight:700">R$ 1.76</td>
-</tr><tr class="ur">
-<td class="num">13</td>
-<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads reporter é possivel</strong><br><span class="est">Caxias — 10/01 [vendas] [wpp] [35+] [homens]</span></td>
 <td class="money">R$ 1.76</td>
 <td class="num">2</td>
@@ -1318,7 +1310,7 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 <td class="num">50.0%</td>
 <td class="cpl" style="font-weight:700">R$ 1.76</td>
 </tr><tr class="ur">
-<td class="num">14</td>
+<td class="num">12</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads glicazida</strong><br><span class="est">Cuiaba — 18/03 [trafego-perfil] [Cuiaba] [35</span></td>
 <td class="money">R$ 3.60</td>
@@ -1328,7 +1320,7 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 <td class="num">22.2%</td>
 <td class="cpl" style="font-weight:700">R$ 1.80</td>
 </tr><tr class="ur">
-<td class="num">15</td>
+<td class="num">13</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads usi de insulina</strong><br><span class="est">Santo Amaro — 01/03 - [vendas] [wpp] [35+] [teste</span></td>
 <td class="money">R$ 1.88</td>
@@ -1338,7 +1330,17 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 <td class="num">100.0%</td>
 <td class="cpl" style="font-weight:700">R$ 1.88</td>
 </tr><tr class="ur">
-<td class="num">16</td>
+<td class="num">14</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads controlar por anos</strong><br><span class="est">Campo Grande — 17/03 [vendas] [wpp] [ceps-bairros-</span></td>
+<td class="money">R$ 3.87</td>
+<td class="num">4</td>
+<td class="num">2.00%</td>
+<td class="num">2</td>
+<td class="num">50.0%</td>
+<td class="cpl" style="font-weight:700">R$ 1.94</td>
+</tr><tr class="ur">
+<td class="num">15</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads controlar nao é tratar</strong><br><span class="est">Brasilia — 31/08 [vendas] [wpp] [km-clinica] [</span></td>
 <td class="money">R$ 4.17</td>
@@ -1348,37 +1350,37 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 <td class="num">28.6%</td>
 <td class="cpl" style="font-weight:700">R$ 2.08</td>
 </tr><tr class="ur">
+<td class="num">16</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ads essas é a Doutor DM2</strong><br><span class="est">Cuiaba — 18/03 [vendas] [wpp] [cuiaba-ceps] </span></td>
+<td class="money">R$ 32.57</td>
+<td class="num">38</td>
+<td class="num">4.73%</td>
+<td class="num">15</td>
+<td class="num">39.5%</td>
+<td class="cpl" style="font-weight:700">R$ 2.17</td>
+</tr><tr class="ur">
 <td class="num">17</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads voce tem dm2</strong><br><span class="est">Cuiaba — 18/03 [vendas] [wpp] [cuiaba-ceps] </span></td>
-<td class="money">R$ 15.54</td>
-<td class="num">12</td>
-<td class="num">2.65%</td>
-<td class="num">7</td>
-<td class="num">58.3%</td>
-<td class="cpl" style="font-weight:700">R$ 2.22</td>
+<td class="money">R$ 32.04</td>
+<td class="num">32</td>
+<td class="num">3.98%</td>
+<td class="num">14</td>
+<td class="num">43.8%</td>
+<td class="cpl" style="font-weight:700">R$ 2.29</td>
 </tr><tr class="ur">
 <td class="num">18</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads voce tem dm2</strong><br><span class="est">Cuiaba — 18/03 [vendas] [wpp] [cuiaba-ceps] </span></td>
-<td class="money">R$ 31.20</td>
-<td class="num">32</td>
-<td class="num">4.09%</td>
-<td class="num">14</td>
-<td class="num">43.8%</td>
-<td class="cpl" style="font-weight:700">R$ 2.23</td>
+<td class="money">R$ 16.06</td>
+<td class="num">12</td>
+<td class="num">2.54%</td>
+<td class="num">7</td>
+<td class="num">58.3%</td>
+<td class="cpl" style="font-weight:700">R$ 2.29</td>
 </tr><tr class="ur">
 <td class="num">19</td>
-<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
-<td class="cn"><strong>ads essas é a Doutor DM2</strong><br><span class="est">Cuiaba — 18/03 [vendas] [wpp] [cuiaba-ceps] </span></td>
-<td class="money">R$ 31.32</td>
-<td class="num">35</td>
-<td class="num">4.53%</td>
-<td class="num">14</td>
-<td class="num">40.0%</td>
-<td class="cpl" style="font-weight:700">R$ 2.24</td>
-</tr><tr class="ur">
-<td class="num">20</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads buscar a remissao</strong><br><span class="est">Sao Jose do Rio Preto — 21/01 [vendas] [rio-preto] [30+] [C</span></td>
 <td class="money">R$ 2.30</td>
@@ -1387,6 +1389,16 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 <td class="num">1</td>
 <td class="num">100.0%</td>
 <td class="cpl" style="font-weight:700">R$ 2.30</td>
+</tr><tr class="ur">
+<td class="num">20</td>
+<td class="ad-cell"><div class="ad-thumb-empty"></div></td>
+<td class="cn"><strong>ADS06 - DADOS DA REDE {CREDIBILIDADE}</strong><br><span class="est">Governador Valadares — 12/03 [PUBLICO-FRIO] [vendas] [wpp]</span></td>
+<td class="money">R$ 2.62</td>
+<td class="num">2</td>
+<td class="num">0.53%</td>
+<td class="num">1</td>
+<td class="num">50.0%</td>
+<td class="cpl" style="font-weight:700">R$ 2.62</td>
 </tr>
     </tbody></table></div>
   </div>
@@ -1400,12 +1412,12 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 <td class="num">1</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>Ads cansaço 2</strong><br><span class="est">Sao Luis — 08/10  [trafego-perfil] [sao luis] </span></td>
-<td class="money">R$ 262.63</td>
+<td class="money">R$ 262.76</td>
 <td class="num">446</td>
 <td class="num">2.41%</td>
 <td class="num">1</td>
 <td class="num">0.2%</td>
-<td class="cpl" style="font-weight:700">R$ 262.63</td>
+<td class="cpl" style="font-weight:700">R$ 262.76</td>
 </tr><tr class="ur">
 <td class="num">2</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
@@ -1430,42 +1442,42 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 <td class="num">4</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ADS ICONHÁ</strong><br><span class="est">Cachoeiro — 12/02 [reconhecimento] [cidades-viz</span></td>
-<td class="money">R$ 241.62</td>
+<td class="money">R$ 242.26</td>
 <td class="num">320</td>
 <td class="num">0.31%</td>
 <td class="num">2</td>
 <td class="num">0.6%</td>
-<td class="cpl" style="font-weight:700">R$ 120.81</td>
+<td class="cpl" style="font-weight:700">R$ 121.13</td>
 </tr><tr class="ur">
 <td class="num">5</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>Ad - Visão 2</strong><br><span class="est">Recife — 14/11  [trafego-perfil] [recife] [3</span></td>
-<td class="money">R$ 235.96</td>
-<td class="num">876</td>
-<td class="num">4.76%</td>
+<td class="money">R$ 236.29</td>
+<td class="num">877</td>
+<td class="num">4.75%</td>
 <td class="num">2</td>
 <td class="num">0.2%</td>
-<td class="cpl" style="font-weight:700">R$ 117.98</td>
+<td class="cpl" style="font-weight:700">R$ 118.14</td>
 </tr><tr class="ur">
 <td class="num">6</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>Ads cansaço 2</strong><br><span class="est">Lapa — 24/10  [Trafego-Perfil] [Lapa] [35+</span></td>
-<td class="money">R$ 172.51</td>
+<td class="money">R$ 172.59</td>
 <td class="num">412</td>
-<td class="num">3.71%</td>
+<td class="num">3.70%</td>
 <td class="num">2</td>
 <td class="num">0.5%</td>
-<td class="cpl" style="font-weight:700">R$ 86.25</td>
+<td class="cpl" style="font-weight:700">R$ 86.30</td>
 </tr><tr class="ur">
 <td class="num">7</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads metformina</strong><br><span class="est">Campo Grande — 17/10  [trafego-perfil] [campo gran</span></td>
-<td class="money">R$ 254.28</td>
-<td class="num">340</td>
+<td class="money">R$ 254.91</td>
+<td class="num">341</td>
 <td class="num">1.67%</td>
 <td class="num">3</td>
 <td class="num">0.9%</td>
-<td class="cpl" style="font-weight:700">R$ 84.76</td>
+<td class="cpl" style="font-weight:700">R$ 84.97</td>
 </tr><tr class="ur">
 <td class="num">8</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
@@ -1490,12 +1502,12 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 <td class="num">10</td>
 <td class="ad-cell"><div class="ad-thumb-empty"></div></td>
 <td class="cn"><strong>ads pre diabetes</strong><br><span class="est">Santo Amaro — 08/03 - [vendas] [wpp] [35+] [zona-</span></td>
-<td class="money">R$ 69.95</td>
+<td class="money">R$ 70.28</td>
 <td class="num">43</td>
-<td class="num">2.60%</td>
+<td class="num">2.58%</td>
 <td class="num">1</td>
 <td class="num">2.3%</td>
-<td class="cpl" style="font-weight:700">R$ 69.95</td>
+<td class="cpl" style="font-weight:700">R$ 70.28</td>
 </tr>
     </tbody></table></div>
   </div>
@@ -1506,7 +1518,7 @@ td{padding:6px;border-bottom:1px solid #f2f2f7;white-space:nowrap}
 <script>
 function sw(t){document.querySelectorAll('.tc').forEach(e=>e.classList.remove('on'));document.querySelectorAll('.tab').forEach(e=>e.classList.remove('on'));document.getElementById('t-'+t).classList.add('on');event.target.classList.add('on')}
 const ctx=document.getElementById('ch').getContext('2d');
-new Chart(ctx,{type:'bar',data:{labels:["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"],datasets:[{label:'Leads',data:[145, 244, 351, 285, 251, 212, 286, 176, 348, 333, 336, 336, 289, 349, 200, 375, 415, 361, 132],backgroundColor:'rgba(0,122,255,.15)',borderColor:'#007AFF',borderWidth:1.5,borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#1d1d1f',padding:10,cornerRadius:8,callbacks:{label:c=>c.parsed.y+' leads'}}},scales:{x:{grid:{display:false}},y:{grid:{color:'#f0f0f5'},beginAtZero:true}}}});
+new Chart(ctx,{type:'bar',data:{labels:["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"],datasets:[{label:'Leads',data:[145, 244, 351, 285, 251, 212, 286, 176, 348, 333, 336, 336, 289, 349, 200, 375, 415, 361, 147],backgroundColor:'rgba(0,229,199,.2)',borderColor:'#00e5c7',borderWidth:1.5,borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#181a24',titleColor:'#e8eaed',bodyColor:'#00e5c7',padding:12,cornerRadius:10,borderColor:'#1e2030',borderWidth:1,callbacks:{label:c=>c.parsed.y+' leads'}}},scales:{x:{grid:{display:false},ticks:{color:'#4a4e63',font:{size:11}}},y:{grid:{color:'#1e2030'},ticks:{color:'#4a4e63',font:{size:11}},beginAtZero:true}}}});
 </script>
 </body>
 </html>
